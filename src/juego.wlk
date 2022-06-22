@@ -1,6 +1,54 @@
 import wollok.game.*
 import consola.*
 
+object juego {
+	
+	
+	method configurar(){
+		game.height(10)
+		game.width(13)
+		game.title("laberintoGame")
+		game.boardGround("laberinto.jpeg")
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class Juego {
 	var property position = null
 	var property color 
@@ -14,5 +62,4 @@ class Juego {
 	}
 	method image() = "juego" + color + ".png"
 	
-
 }
