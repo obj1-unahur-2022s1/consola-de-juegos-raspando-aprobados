@@ -1,8 +1,19 @@
 import wollok.game.*
+import niveles.*
 import juego.*
 
 program laberinto {
-	juego.configurar()
-	game.start()
 
+	game.title("Laberinto")
+
+	game.height(9)
+	game.width(9)
+	game.ground("suelo.png")
+	
+	nivel1.cargar()
+	game.showAttributes(player)
+	
+	keyboard.s().onPressDo{game.stop()}
+	
+	game.start()
 }
