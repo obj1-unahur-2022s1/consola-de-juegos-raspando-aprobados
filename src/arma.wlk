@@ -17,4 +17,3 @@ class Arma {
 
 /*class Escudo inherits Arma {
    override method image() = "escudo.png" */
-}

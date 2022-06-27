@@ -23,7 +23,9 @@ object player {
 	
 	method agregarVida() {
 		if(vidas < 3){
-			vidas ++} else{
+		return vidas ++
+		} else { 
+			return
 				vidas 
 			}
 	}
