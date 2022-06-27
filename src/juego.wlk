@@ -55,7 +55,6 @@ object player {
 			self.estaArmado(true)
 		}else if(unObjeto.esEnemigo() and !self.estaArmado()){
 			vidas -= 1
-			self.resetPosition()
 		}else if(unObjeto.esVida()){
 			self.agregarVida()
 			}
