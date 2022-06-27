@@ -51,13 +51,18 @@ object nivel1 {
 			.map{ p => self.crear(new Arma(position = p)) }	
 			
 //Vidas	
-	   	var escudos = [new Position(x=7, y=3)]
+	   	var vida = [new Position(x=7, y=3)]
 			.map{ p => self.crear(new Vida(position = p)) }	
 		
+//Barra vidas
+
+       	var barraVida = [new Position(x=6, y=8)]
+			.map{ p => self.crear(new BarraVida(position = p)) }	
+ 
 //ENEMIGOS	
 	
 		var enemigos = [new Position(x=4, y=2),new Position(x=2, y=5),new Position(x=3, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p)) }
+			.map{ p => self.crear(new Enemigo(position = p)) } //157 x 59
 	
 //Colisiones	
 

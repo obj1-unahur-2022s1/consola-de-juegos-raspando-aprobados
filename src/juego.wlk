@@ -16,9 +16,17 @@ object player {
 		  return "guerreroSinArma.png"
 	   }
 	}
+	
+	method vidasActuales() = vidas
+	
 	method mensaje() = "Necesito poder defenderme"
 	
-	method agregarVida() {vidas ++}
+	method agregarVida() {
+		if(vidas < 3){
+			vidas ++} else{
+				vidas 
+			}
+	}
 	
 //Intento de collide----------------------------------
     
