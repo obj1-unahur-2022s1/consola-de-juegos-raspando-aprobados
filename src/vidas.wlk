@@ -4,6 +4,9 @@ import juego.*
 class Vida {
 
 	const property position
+	const property esArma = false
+	const property esEnemigo = false
+	const property esVida = true
 	
 	method image() = "vida.png"
 	
@@ -11,7 +14,6 @@ class Vida {
 	
 	method producirAccion(){
 		game.removeVisual(self)
-		player.agregarVida()
 	}
 }
 

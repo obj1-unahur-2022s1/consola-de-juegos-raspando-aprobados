@@ -67,11 +67,15 @@ object nivel1 {
 	
 //Colisiones	
 
-	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
+	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
-	     game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
+	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
 	     
-	     game.sound("nivel1.mp3").play()
+	     //game.sound("nivel1.mp3").play()
+	     
+	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
+	     										  player.chocarConObjeto(elemento)
+	 		})
 	}
 	
 	method crear(dibujo) {
@@ -149,11 +153,14 @@ object nivel2 {
 	
 // Colisiones	
 
-	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
+	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
-	     game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
+	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
 	     
 	     //game.sound("musicaGame.mp3").play()
+	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
+	     										  player.chocarConObjeto(elemento)
+	     })
 	}
 	
 	method crear(dibujo) {

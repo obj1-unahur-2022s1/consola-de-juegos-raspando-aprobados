@@ -1,5 +1,7 @@
 import wollok.game.*
 import direcciones.*
+import arma.*
+import vidas.*
 
 object player {
 	
@@ -37,7 +39,7 @@ object player {
 	method resetPosition() {
 		position = game.at(4, 0)
 	}
-
+/* 
 	method chocarCon(rival) {
 		if(!self.estaArmado()){
 		vidas -= 1
@@ -49,6 +51,18 @@ object player {
 		}
 	}
 }
+*/
+
+	method chocarConObjeto(unObjeto){
+		if(unObjeto.esArma()){
+			self.estaArmado(true)
+		}else if(unObjeto.esEnemigo() and !self.estaArmado()){
+			vidas -= 1
+			self.resetPosition()
+		}else if(unObjeto.esVida()){
+			self.agregarVida()
+			}
+		}
 	
 //----------------------------------------------------
 	method retrocede() {

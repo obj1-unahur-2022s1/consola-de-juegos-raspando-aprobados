@@ -1,6 +1,5 @@
 import wollok.game.*
 import niveles.*
-
 class Meta {
 	const property position
 	
