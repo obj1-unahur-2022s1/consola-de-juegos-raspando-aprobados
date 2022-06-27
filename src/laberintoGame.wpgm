@@ -14,6 +14,5 @@ program laberinto {
 	game.showAttributes(player)
 	
 	keyboard.s().onPressDo{game.stop()}
-	
 	game.start()
 }

@@ -3,7 +3,6 @@ import juego.*
 
 class Enemigo{	
 	var property position
-	var vida = 1
 	
 	method image()= "monstruo.png"
 	

@@ -5,7 +5,7 @@ import direcciones.*
 import meta.*
 import arma.*
 import enemigos.*
-import Vidas.*
+import vidas.*
 
 object nivel1 {
 	
@@ -51,7 +51,7 @@ object nivel1 {
 			.map{ p => self.crear(new Arma(position = p)) }	
 			
 //Vidas	
-	   	var vida = [new Position(x=7, y=3)]
+	   	var vida = [new Position(x=7, y=6)]
 			.map{ p => self.crear(new Vida(position = p)) }	
 		
 //Barra vidas
@@ -62,7 +62,7 @@ object nivel1 {
 //Enemigos	
 	
 		var enemigos = [new Position(x=4, y=2),new Position(x=2, y=5),new Position(x=3, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p)) } //157 x 59
+			.map{ p => self.crear(new Enemigo(position = p)) } 
 	
 //Colisiones	
 
@@ -76,11 +76,17 @@ object nivel1 {
 		return dibujo
 	}
 	
+	method pasarNivel(){
+		game.clear()
+		nivel2.cargar()
+	}
+	
+	
 }
 
 
 // Nivel 2 
-/* 
+
 object nivel2 {
 	
 	method cargar() {
@@ -108,6 +114,7 @@ object nivel2 {
 // Player
 
 		game.addVisualCharacter(player)
+        player.estaArmado(false)
 		game.say(player, player.mensaje())
 
 // LLegadas
@@ -130,7 +137,7 @@ object nivel2 {
 // Enemigos
 	
 		var enemigos = [new Position(x=7, y=1),new Position(x=4, y=3),new Position(x=1, y=4),new Position(x=7, y=5),new Position(x=4, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p)) } //157 x 59		
+			.map{ p => self.crear(new Enemigo(position = p)) } 	
 
 	
 // Colisiones	
@@ -146,5 +153,5 @@ object nivel2 {
 	}	
 }
 
-*/
+
 
