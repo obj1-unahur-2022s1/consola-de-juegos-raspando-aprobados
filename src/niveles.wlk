@@ -76,7 +76,7 @@ object nivel1 {
 	     
 	//    game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
 	     
-	     game.sound("nivel1.mp3").play()
+	     //game.sound("nivel1.mp3").play()
 	     
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
 	     										  player.chocarConObjeto(elemento)
@@ -168,7 +168,7 @@ object nivel2 {
 	     
 	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
 	     
-	     //game.sound("musicaGame.mp3").play()
+	    // game.sound("musicaGame.mp3").play()
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
 	     										  player.chocarConObjeto(elemento)
 	     })
@@ -212,9 +212,13 @@ object nivel3 {
 		posteParedes.remove(new Position(x=4,y=0))//bordeAbajo - la entrada
 		posteParedes.remove(new Position(x=2,y=largo))//bordeArriba - la salida
 		
-		posteParedes.addAll([new Position(x=1,y=2), new Position(x=3,y=2), new Position(x=4,y=2),new Position(x=5,y=2),new Position(x=6,y=2)])
-		posteParedes.addAll([new Position(x=2,y=4), new Position(x=3,y=4), new Position(x=4,y=4),new Position(x=5,y=4),new Position(x=6,y=4),new Position(x=7,y=4)])
-		posteParedes.addAll([new Position(x=1,y=6), new Position(x=2,y=6), new Position(x=3,y=6),new Position(x=4,y=6),new Position(x=5,y=6),new Position(x=6,y=6)])
+		posteParedes.addAll([new Position(x=7,y=1)])
+		posteParedes.addAll([new Position(x=2,y=2), new Position(x=3,y=2), new Position(x=6,y=2),new Position(x=7,y=2)])
+		posteParedes.addAll([new Position(x=4,y=3),new Position(x=3,y=3)])
+		posteParedes.addAll([new Position(x=1,y=4), new Position(x=4,y=4),new Position(x=7,y=4)])
+		posteParedes.addAll([new Position(x=3,y=5),new Position(x=5,y=5)])
+		posteParedes.addAll([new Position(x=6,y=6)])
+		posteParedes.addAll([new Position(x=1,y=7), new Position(x=4,y=7)])
 	
 		posteParedes.forEach { p => self.crear(new Pared(position = p)) }
 		
@@ -222,6 +226,7 @@ object nivel3 {
 
 		game.addVisualCharacter(player)
         player.estaArmado(false)
+        player.resetPosition()
 		game.say(player, player.mensaje())
 
 //Nivel
@@ -233,11 +238,11 @@ object nivel3 {
 			.map{ p => self.crear(new Meta(position = p)) }		
 	
 // Arma 
-		var armas = [new Position(x=2, y=2)]
+		var armas = [new Position(x=4, y=6)]
 			.map{ p => self.crear(new Arma(position = p)) }	
 			
 // Vidas	
-	   	var vida = [new Position(x=7, y=3)]
+	   	var vida = [new Position(x=1, y=5)]
 			.map{ p => self.crear(new Vida(position = p)) }	
 		
 // Barra vidas
@@ -247,8 +252,8 @@ object nivel3 {
  
 // Enemigos
 	
-		var enemigos = [new Position(x=7, y=1),new Position(x=4, y=3),new Position(x=1, y=4),new Position(x=7, y=5),new Position(x=4, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p, image="monstruoNivel2.png")) } 	
+		var enemigos = [new Position(x=4, y=2),new Position(x=6, y=3),new Position(x=2, y=6),new Position(x=3, y=4),new Position(x=4, y=5),
+			new Position(x=7, y=7),new Position(x=5, y=2), new Position(x=6, y=7), new Position(x=1, y=6),new Position(x=2, y=7)].map{ p => self.crear(new Enemigo(position = p, image="monstruoNivel2.png")) } 	
 
 	
 // Colisiones	
@@ -257,7 +262,7 @@ object nivel3 {
 	     
 	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
 	     
-	     //game.sound("musicaGame.mp3").play()
+	     //       game.sound("musicaGame.mp3").play()
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
 	     										  player.chocarConObjeto(elemento)
 	     })

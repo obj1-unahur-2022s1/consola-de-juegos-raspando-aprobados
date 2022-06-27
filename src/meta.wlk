@@ -10,8 +10,8 @@ class Meta {
 	method tePuedePisar(unObjeto) = true
 	method image() = "metafinal.png"
 	method producirAccion(){
-		if ((nivel1.nivelJuego()) == 1){
-		 nivel1.pasarNivel(nivel2)
+		if ((nivel3.nivelJuego()) == 3){
+		 nivel1.pasarNivel(nivel3)
 		}
 		else if((nivel2.nivelJuego()) == 2){
 		 nivel2.pasarNivel(nivel3)	
