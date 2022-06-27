@@ -10,7 +10,7 @@ program laberinto {
 	game.width(9)
 	game.ground("suelo.png")
 	
-	nivel1.cargar()
+	nivel1.iniciar()
 	game.showAttributes(player)
 	
 	keyboard.s().onPressDo{game.stop()}

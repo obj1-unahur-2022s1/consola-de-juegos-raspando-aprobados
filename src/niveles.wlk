@@ -8,13 +8,14 @@ import enemigos.*
 import vidas.*
 
 object nivel1 {
-	method cargar() {
+	var property position
+	method iniciar() {
 		
 // Paredes
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
-	
-		var posteParedes = []
+		
+		const posteParedes = []
 		
 		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=0)) } // bordeAbajo
 		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=largo)) } // bordeArriba 
@@ -82,6 +83,10 @@ object nivel1 {
 		game.clear()
 		nivel2.cargar()
 	}
+	
+	method terminar(){
+		game.clear()
+	}
  
 }
 
@@ -148,7 +153,7 @@ object nivel2 {
 	     
 	     game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
 	     
-	     game.sound("musicaGame.mp3").play()
+	     //game.sound("musicaGame.mp3").play()
 	}
 	
 	method crear(dibujo) {

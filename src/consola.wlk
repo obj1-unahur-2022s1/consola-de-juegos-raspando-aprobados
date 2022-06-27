@@ -1,10 +1,16 @@
 import wollok.game.* 
 import juego.*
+import niveles.*
+import arma.*
+import enemigos.*
+import meta.*
+import paredes.*
+import vidas.*
 
 object consola {
 
 	const juegos = [
-		new Juego(color = "Amarillo"),
+		nivel1,
 		new Juego(color = "Verde"),
 		new Juego(color = "Rojo"),
 		new Juego(color = "Azul"),
