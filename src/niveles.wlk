@@ -38,14 +38,8 @@ object nivel1 {
 		
 	//	player
 
-		game.addVisual(player)
+		game.addVisualCharacter(player)
 		game.say(player, player.mensaje())
-
-//	teclado
-		keyboard.up().onPressDo{ player.irArriba() }
-		keyboard.down().onPressDo{ player.irAbajo() }
-		keyboard.left().onPressDo{ player.irIzquierda() }
-		keyboard.right().onPressDo{ player.irDerecha() }
 
 //	LLEGADAS
 		var metas = [new Position(x=2, y=8)]
@@ -62,9 +56,6 @@ object nivel1 {
 	
 //Colisiones	
 
-         game.whenCollideDo(player, { armas => player.chocarConObjeto(armas)
-         	player.estaArmado(true)
-         })
          
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     

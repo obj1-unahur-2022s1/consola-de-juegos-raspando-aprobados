@@ -30,13 +30,16 @@ object player {
 	method chocarConObjeto(objeto) {estaArmado = objeto.image() == "arma2.png"}
 	
 	method chocarCon(rival) {
+		if(!self.estaArmado()){
 		vidas -= 1
 		self.resetPosition()
-//		rival.resetPosition()
 		if (self.juegoTerminado()) {
 			game.stop()
+		}else{
+			game.removeVisual(rival.image())
 		}
 	}
+}
 	
 //----------------------------------------------------
 	method retrocede() {

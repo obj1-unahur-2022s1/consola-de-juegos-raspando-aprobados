@@ -11,7 +11,6 @@ class Enemigo{
 	
 	method producirAccion(){
 		if (player.estaArmado()){
-			vida -= 1
 			game.removeVisual(self)
 	    }
 	}
