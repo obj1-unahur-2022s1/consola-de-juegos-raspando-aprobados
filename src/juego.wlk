@@ -18,6 +18,8 @@ object player {
 	}
 	method mensaje() = "Necesito poder defenderme"
 	
+	method agregarVida() {vidas ++}
+	
 //Intento de collide----------------------------------
     
     method juegoTerminado() = vidas == 0

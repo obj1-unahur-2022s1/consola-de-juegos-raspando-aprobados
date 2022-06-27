@@ -5,6 +5,7 @@ import direcciones.*
 import meta.*
 import arma.*
 import enemigos.*
+import Vidas.*
 
 object nivel1 {
 	
@@ -48,6 +49,10 @@ object nivel1 {
 //ARMA
 		var armas = [new Position(x=1, y=2)]
 			.map{ p => self.crear(new Arma(position = p)) }	
+			
+//Vidas	
+	   	var escudos = [new Position(x=7, y=3)]
+			.map{ p => self.crear(new Vida(position = p)) }	
 		
 //ENEMIGOS	
 	
@@ -56,7 +61,6 @@ object nivel1 {
 	
 //Colisiones	
 
-         
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
 	     game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})

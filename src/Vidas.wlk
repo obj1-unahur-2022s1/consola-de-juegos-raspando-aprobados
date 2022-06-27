@@ -1,20 +1,16 @@
 import wollok.game.*
 import juego.*
 
-class Arma {
+class Vida {
 
 	const property position
 	
-	method image() = "arma2.png"
+	method image() = "vida.png"
 	
 	method tePuedePisar(unObjeto) = true
 	
 	method producirAccion(){
 		game.removeVisual(self)
-		player.estaArmado(true) 
+		player.agregarVida()
 	}
-}
-
-/*class Escudo inherits Arma {
-   override method image() = "escudo.png" */
 }
