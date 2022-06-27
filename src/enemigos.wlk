@@ -13,6 +13,7 @@ class Enemigo{
 	
 	method producirAccion(){
 		if (player.estaArmado()){
+			game.sound("matarenemigo.mp3").play()
 			game.removeVisual(self)
 	    } else {
 	    	game.say(player, "¡Auch! No debi hacer eso")

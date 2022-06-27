@@ -69,6 +69,8 @@ object nivel1 {
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
 	     game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
+	     
+	     //game.sound("nivel1.mp3").play()  si lo descomento no inicia el game
 	}
 	
 	method crear(dibujo) {
@@ -145,6 +147,8 @@ object nivel2 {
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
 	     game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
+	     
+	     game.sound("musicaGame.mp3").play()
 	}
 	
 	method crear(dibujo) {
