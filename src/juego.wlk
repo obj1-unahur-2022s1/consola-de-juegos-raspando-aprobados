@@ -30,7 +30,7 @@ object player {
 			}
 	}
 	
-//Intento de collide----------------------------------
+//----------------------------------------------
     
     method juegoTerminado() = vidas == 0
 	
