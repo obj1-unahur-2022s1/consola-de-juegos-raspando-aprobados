@@ -43,7 +43,6 @@ object nivel1 {
 
 		game.addVisualCharacter(player)
 		game.say(player, player.mensaje())
-		
 //Nivel
 
       var numeroNivel = [new Position(x=0, y=8)].map{ p => self.crear(new TextoNivel(position = p, image= "nivel1Texto.png")) }	
@@ -73,11 +72,11 @@ object nivel1 {
 	
 //Colisiones	
 
-	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
+	//     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
-	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
+	//    game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
 	     
-	     //game.sound("nivel1.mp3").play()
+	     game.sound("nivel1.mp3").play()
 	     
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
 	     										  player.chocarConObjeto(elemento)
@@ -133,6 +132,7 @@ object nivel2 {
 
 		game.addVisualCharacter(player)
         player.estaArmado(false)
+        player.resetPosition()
 		game.say(player, player.mensaje())
 
 //Nivel

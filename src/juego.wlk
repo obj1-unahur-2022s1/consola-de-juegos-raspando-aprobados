@@ -23,13 +23,10 @@ object player {
 	
 	method mensaje() = "Necesito poder defenderme"
 	
-	method agregarVida() {
-		if(vidas < 3){
-		return vidas ++
-		} else { 
-			return
-				vidas 
-			}
+	method agregarVida(){
+		if(vidas < 3)
+			vidas += 1
+		return vidas
 	}
 	
 //----------------------------------------------
@@ -62,9 +59,8 @@ object player {
 		}else if(unObjeto.esVida()){
 			self.agregarVida()
 			}
-		}
+	 }
 	
-//----------------------------------------------------
 	method retrocede() {
 		position = direccion.opuesto().siguiente(position)
 	}

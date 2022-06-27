@@ -3,6 +3,9 @@ import niveles.*
 
 class Meta {
 	const property position
+	const property esArma = false
+	const property esEnemigo = false
+	const property esVida = false
 	
 	method tePuedePisar(unObjeto) = true
 	method image() = "metafinal.png"
