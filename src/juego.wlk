@@ -36,20 +36,19 @@ object player {
 	method resetPosition() {
 		position = game.at(4, 0)
 	}
-/* 
+
 	method chocarCon(rival) {
 		if(!self.estaArmado()){
 		vidas -= 1
-		self.resetPosition()
-		if (self.juegoTerminado()) {
+		}else if (self.juegoTerminado()) {
 			game.stop()
 		}else{
 			game.removeVisual(rival.image())
 		}
 	}
-}
-*/
 
+
+/* 
 	method chocarConObjeto(unObjeto){
 		if(unObjeto.esArma()){
 			self.estaArmado(true)
@@ -59,7 +58,8 @@ object player {
 			self.agregarVida()
 			}
 	 }
-	
+	*/
+
 	method retrocede() {
 		position = direccion.opuesto().siguiente(position)
 	}

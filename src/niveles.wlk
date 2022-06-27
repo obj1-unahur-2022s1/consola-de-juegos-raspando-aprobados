@@ -73,15 +73,15 @@ object nivel1 {
 	
 //Colisiones	
 
-	//     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
+	    game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
-	//    game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
+	    game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
 	     
-	     //game.sound("nivel1.mp3").play()
+	    game.sound("nivel1.mp3").play()
 	     
-	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
-	     										  player.chocarConObjeto(elemento)
-	 		})
+	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()
+	     //										  player.chocarConObjeto(elemento)
+	 	//	})
 	}
 	
 	method crear(dibujo) {
@@ -113,7 +113,7 @@ object nivel2 {
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
 			
-		var posteParedes = []
+		const posteParedes = []
 		
 		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=0)) } // bordeAbajo
 		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=largo)) } // bordeArriba 
@@ -165,14 +165,14 @@ object nivel2 {
 	
 // Colisiones	
 
-	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
+	    game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
-	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
+	    game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
 	     
-	    // game.sound("musicaGame.mp3").play()
-	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
-	     										  player.chocarConObjeto(elemento)
-	     })
+	 	game.sound("musicaGame.mp3").play()
+	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()
+	     //										  player.chocarCon(elemento)
+	     //})
 	}
 	
 	method crear(dibujo) {
@@ -204,7 +204,7 @@ object nivel3 {
 		const largo = game.height() - 1
 		const titulo = game.title("Laberinto de monstruos")
 			
-		var posteParedes = []
+		const posteParedes = []
 		
 		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=0)) } // bordeAbajo
 		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=largo)) } // bordeArriba 
@@ -260,14 +260,11 @@ object nivel3 {
 	
 // Colisiones	
 
-	     //game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
+	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
 	     
-	     //game.whenCollideDo(player, { enemigos => player.chocarConObjeto(enemigos)})
+	    game.whenCollideDo(player, { enemigos => player.chocarCon(enemigos)})
 	     
-	     //       game.sound("musicaGame.mp3").play()
-	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
-	     										  player.chocarConObjeto(elemento)
-	     })
+	 	game.sound("musicaGame.mp3").play()
 	}
 	
 	method crear(dibujo) {
