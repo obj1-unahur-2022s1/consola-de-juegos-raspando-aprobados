@@ -4,8 +4,10 @@ import niveles.*
 
 class Enemigo{	
 	var property position
+	const property image = ["monstruo.png", "monstruoNivel2.png"]	
+	//method image()= "monstruo.png"
 	
-	method image()= "monstruo.png"
+	
 	
 	method tePuedePisar(unObjeto) = true
 	
@@ -16,5 +18,7 @@ class Enemigo{
 	    	game.say(player, "¡Auch! No debi hacer eso")
 	    }
 	}
+	
+	
 	
 } 
