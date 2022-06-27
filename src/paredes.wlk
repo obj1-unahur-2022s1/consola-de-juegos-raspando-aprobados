@@ -5,4 +5,5 @@ class Pared {
 
 	method tePuedePisar(unObjeto) = false
 	method image() ="muro.png"
+	method producirAccion() {/*polimorfismo*/}
 }
