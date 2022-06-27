@@ -11,35 +11,35 @@ object consola {
 		new Juego(color = "Naranja"),
 		new Juego(color = "Violeta")
 	]
-	var menu 
+	
+	var menu
 	
 	method initialize(){
-		game.height(12)
-		game.width(17)
+	    game.height(9)
+	    game.width(9)
 		game.title("Consola de juegos")
 	}
 	
-	method iniciar(){
+	method iniciar(){ 
 		menu = new MenuIconos(posicionInicial = game.center().left(2))	
 		game.addVisual(menu)
 		juegos.forEach{juego=>menu.agregarItem(juego)}
 		menu.dibujar()
-		keyboard.enter().onPressDo{self.hacerIniciar(menu.itemSeleccionado())}
-		
+		keyboard.enter().onPressDo{self.hacerIniciar(menu.itemSeleccionado())} 
 	}
 	
-	method hacerIniciar(juego){
+	method hacerIniciar(juego){ 
 		game.clear()
-		keyboard.q().onPressDo{self.hacerTerminar(juego)}
+		keyboard.q().onPressDo{self.hacerTerminar(juego)} 
 		juego.iniciar()
 	}
+	
 	method hacerTerminar(juego){
 		juego.terminar()
 		game.clear()
 		self.iniciar()
 	}
 }
-
 
 class MenuIconos{
 	var seleccionado = 1

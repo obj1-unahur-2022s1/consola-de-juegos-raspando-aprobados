@@ -1,6 +1,5 @@
 import wollok.game.*
 import direcciones.*
-import arma.*
 
 object player {
 	
@@ -26,9 +25,7 @@ object player {
 	method resetPosition() {
 		position = game.at(4, 0)
 	}
-	
-	method chocarConObjeto(objeto) {estaArmado = objeto.image() == "arma2.png"}
-	
+
 	method chocarCon(rival) {
 		if(!self.estaArmado()){
 		vidas -= 1

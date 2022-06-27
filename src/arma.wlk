@@ -1,8 +1,8 @@
 import wollok.game.*
+import juego.*
 
 class Arma {
-	
-	var property armaTomada = false
+
 	const property position
 	
 	method image() = "arma2.png"
@@ -11,6 +11,6 @@ class Arma {
 	
 	method producirAccion(){
 		game.removeVisual(self)
-		armaTomada = true
+		player.estaArmado(true) 
 	}
 }

@@ -1,6 +1,7 @@
 import consola.*
 import wollok.game.*
 
+
 program juegos {
 
 	consola.iniciar()
