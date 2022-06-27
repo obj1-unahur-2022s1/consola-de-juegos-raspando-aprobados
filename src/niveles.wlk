@@ -81,7 +81,7 @@ object nivel1 {
 
 // Nivel 2 
 /* 
-object nivel1 {
+object nivel2 {
 	
 	method cargar() {
 		
