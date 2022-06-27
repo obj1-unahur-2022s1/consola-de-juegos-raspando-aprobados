@@ -8,7 +8,6 @@ import enemigos.*
 import vidas.*
 
 object nivel1 {
-	
 	method cargar() {
 		
 // Paredes
@@ -64,6 +63,7 @@ object nivel1 {
 		var enemigos = [new Position(x=4, y=2),new Position(x=2, y=5),new Position(x=3, y=7)]
 			.map{ p => self.crear(new Enemigo(position = p)) } 
 	
+	
 //Colisiones	
 
 	     game.whenCollideDo(player, { elemento => elemento.producirAccion()})  
@@ -80,15 +80,15 @@ object nivel1 {
 		game.clear()
 		nivel2.cargar()
 	}
-	
-	
+ 
 }
 
 
 // Nivel 2 
 
 object nivel2 {
-	
+
+    method nivel() = 1
 	method cargar() {
 		
 // Paredes

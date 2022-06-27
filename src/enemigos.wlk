@@ -1,5 +1,6 @@
 import wollok.game.*
 import juego.*
+import niveles.*
 
 class Enemigo{	
 	var property position
