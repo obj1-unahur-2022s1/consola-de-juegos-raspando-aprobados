@@ -9,18 +9,7 @@ class Enemigo{
 	
 	method tePuedePisar(unObjeto) = true
 	
-	method colisionadoPor(objeto) {
-		if(player.estaArmado()) {
-			vida -=1
-			game.removeVisual(self)
-		}
-		else {
-	    	player.restarVida()
-	    	game.say(player, "¡Auch! No debi hacer eso")
-	    }
-}
-	
-	/*method producirAccion(){
+	method producirAccion(){
 		if (player.estaArmado()){
 			game.sound("matarenemigo.mp3").play()
 			vida -= 1
@@ -30,7 +19,7 @@ class Enemigo{
 	    	game.say(player, "¡Auch! No debi hacer eso")
 	    }
 	}
-	*/
+	
 	
 	
 } 

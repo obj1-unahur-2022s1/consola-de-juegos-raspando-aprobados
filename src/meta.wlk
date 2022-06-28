@@ -6,8 +6,7 @@ class Meta {
 	method tePuedePisar(unObjeto) = true
 	
 	method image() = "metafinal.png"
-	
-	method colisionadoPor(objeto){
+	method producirAccion(){
 		if ((nivel1.nivelActual()) == 1){
 		 nivel1.pasarNivel(nivel2)
 		}

@@ -4,5 +4,5 @@ class Pared {
 	
 	method tePuedePisar(unObjeto) = false
 	method image() ="muro.png"
-	method colisionadoPor(objeto) {}
+	method producirAccion(){}
 }

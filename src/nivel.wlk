@@ -8,6 +8,6 @@ class TextoNivel {
 	
 	method tePuedePisar(unObjeto) = false
 	
-	method colisionadoPor(objeto){/*Polimrfimso */}
+	method producirAccion(){/*Polimrfimso */}
 
 }
