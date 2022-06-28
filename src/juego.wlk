@@ -32,25 +32,9 @@ object player {
 	method restarVida(){vidas -= 1}
 	
 //----------------------------------------------
-    
-    method juegoTerminado() = vidas == 0
-	
 	method resetPosition() {
 		position = game.at(4, 0)
 	}
-
-
-/* 
-	method chocarConObjeto(unObjeto){
-		if(unObjeto.esArma()){
-			self.estaArmado(true)
-		}else if(unObjeto.esEnemigo() and !self.estaArmado()){
-			vidas -= 1
-		}else if(unObjeto.esVida()){
-			self.agregarVida()
-			}
-	 }
-	*/
 
 	method retrocede() {
 		position = direccion.opuesto().siguiente(position)
@@ -87,9 +71,9 @@ object player {
 	
 	method validarLugarLibre(unaDireccion) {
 		const posicionAlLado = unaDireccion.siguiente(position) 
-		const lugarLibre = game.getObjectsIn(posicionAlLado).all{ obj => obj.tePuedePisar(self) } //obtengo objetos de la posicion de al lado 
-																								  //y pregunta si lo puede pisar el jugador
-		if (!lugarLibre) 																		  //si no hay lugar se lanza la excepcion con el mensaje
+		const lugarLibre = game.getObjectsIn(posicionAlLado).all{ obj => obj.tePuedePisar(self) } 
+																								  
+		if (!lugarLibre) 																		  
 			throw new Exception(message = "NO PUEDES MOVERTE AHI.")
 	
 	}
