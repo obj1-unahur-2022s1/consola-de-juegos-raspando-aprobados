@@ -9,7 +9,7 @@ import vidas.*
 import nivel.*
 
 object nivel1 {
-    const nivelActual = 1
+    const property nivelActual = 1
 	var property position
 	method iniciar() {
 		
@@ -97,8 +97,7 @@ object nivel1 {
 // Nivel 2 
 
 object nivel2 {
-    const nivelActual = 2
-    method nivel() = 1
+    const property nivelActual = 2
 	method cargar() {
 		
 // Paredes
@@ -182,7 +181,6 @@ object nivel2 {
 
 object nivel3 {
     const nivelActual = 3
-    method nivel() = 1
 	method cargar() {
 		
 // Paredes

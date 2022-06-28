@@ -7,10 +7,10 @@ class Meta {
 	
 	method image() = "metafinal.png"
 	method producirAccion(){
-		if ((nivel1.nivelJuego()) == 1){
+		if ((nivel1.nivelActual()) == 1){
 		 nivel1.pasarNivel(nivel2)
 		}
-		else if((nivel2.nivelJuego()) == 2){
+		else if((nivel2.nivelActual()) == 2){
 		 nivel2.pasarNivel(nivel3)	
 		} 
 	}
