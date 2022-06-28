@@ -4,15 +4,13 @@ import juego.*
 class Vida {
 
 	const property position
-	const property esArma = false
-	const property esEnemigo = false
-	const property esVida = true
 	
 	method image() = "vida.png"
 	
 	method tePuedePisar(unObjeto) = true
 	
 	method producirAccion(){
+		player.agregarVida()
 		game.removeVisual(self)
 	}
 }
@@ -28,7 +26,9 @@ class BarraVida {
 	 	  return "barraVidas1.png" 
         } else if(player.vidasActuales() == 0){
 	 	  return "barraVidas0.png" 
-	 	} else return "barraVidasLlena.png"
+        } else if (player.vidasActuales() == 3){
+	 	  return "barraVidasLlena.png"
+	 	}
     }
     
     method tePuedePisar(unObjeto) = false

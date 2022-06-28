@@ -29,22 +29,14 @@ object player {
 		return vidas
 	}
 	
+	method restarVida(){vidas -= 1}
+	
 //----------------------------------------------
     
     method juegoTerminado() = vidas == 0
 	
 	method resetPosition() {
 		position = game.at(4, 0)
-	}
-
-	method chocarCon(rival) {
-		if(!self.estaArmado()){
-		vidas -= 1
-		}else if (self.juegoTerminado()) {
-			game.stop()
-		}else{
-			game.removeVisual(rival.image())
-		}
 	}
 
 
