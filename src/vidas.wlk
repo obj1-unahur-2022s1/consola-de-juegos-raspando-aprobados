@@ -29,7 +29,10 @@ class BarraVida {
         } else if (player.vidasActuales() == 3){
 	 	  return "barraVidasLlena.png"
 	 	}
-    }
+	 	else {
+	 		return ""
+	 	}
+}
     
     method tePuedePisar(unObjeto) = false
 }
