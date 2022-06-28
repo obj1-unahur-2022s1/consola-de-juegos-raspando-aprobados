@@ -9,8 +9,8 @@ class Vida {
 	
 	method tePuedePisar(unObjeto) = true
 	
-	method producirAccion(){
-		player.agregarVida()
+	method colisionadoPor(objeto){
+		objeto.agregarVida()
 		game.removeVisual(self)
 	}
 }

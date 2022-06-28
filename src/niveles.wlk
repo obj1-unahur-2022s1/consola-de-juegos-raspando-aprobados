@@ -53,7 +53,7 @@ object nivel1 {
 			.map{ p => self.crear(new Meta(position = p)) }		
 	
 //Arma
-		var armas = [new Position(x=1, y=3)]
+		var armas = [new Position(x=5, y=1)]
 			.map{ p => self.crear(new Arma(position = p)) }	
 			
 //Vidas	
@@ -72,11 +72,18 @@ object nivel1 {
 	
 	
 //Colisiones	
-
-	    game.onCollideDo(player, { elemento => elemento.producirAccion()})
+		game.whenCollideDo(player, {elemento => elemento.colisionadoPor(player)
+     
+	        if(!player.estaArmado()) {player.chocarCon(enemigos)} else {}
+	     
+		
 	    game.sound("nivel1.mp3").play()
-	}
+	})
 	
+	
+	
+}
+		
 	method crear(dibujo) {
 		game.addVisual(dibujo)
 		return dibujo
@@ -157,8 +164,11 @@ object nivel2 {
 	
 // Colisiones	
 
-        game.onCollideDo(player, { elemento => elemento.producirAccion()})
-	}
+        game.whenCollideDo(player, {elemento => elemento.colisionadoPor(player) 
+			 //if(!player.estaArmado()) {player.chocarCon(enemigos)} else {}
+	})
+	
+}
 	
 	method crear(dibujo) {
 		game.addVisual(dibujo)
@@ -243,10 +253,19 @@ object nivel3 {
 	
 // Colisiones	
 
-        game.onCollideDo(player, { elemento => elemento.producirAccion()})
+        
+        	game.whenCollideDo(player, {elemento => elemento.colisionadoPor(player)
+     
+	        if(!player.estaArmado()) {player.chocarCon(enemigos)} else {}
 	     
-	 	game.sound("musicaGame.mp3").play()
-	}
+			game.sound("musicaGame.mp3").play()
+		})
+		
+		
+		
+}
+	
+	
 	
 	method crear(dibujo) {
 		game.addVisual(dibujo)

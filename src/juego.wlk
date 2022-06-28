@@ -32,6 +32,21 @@ object player {
 	method restarVida(){vidas -= 1}
 	
 //----------------------------------------------
+		//method chocarConObjeto(objeto) {estaArmado = objeto.image() == "arma2.png"}
+	
+	method chocarCon(rival) {
+		vidas -= 1
+		self.resetPosition()
+//		rival.resetPosition()
+		if (self.juegoTerminado()) {
+			game.stop()
+		}
+	}
+	
+	
+	method juegoTerminado() = vidas == 0
+
+
 	method resetPosition() {
 		position = game.at(4, 0)
 	}
