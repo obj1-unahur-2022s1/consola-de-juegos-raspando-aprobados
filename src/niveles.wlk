@@ -98,7 +98,7 @@ object nivel1 {
 
 object nivel2 {
     const property nivelActual = 2
-	method cargar() {
+	method cargar()   {
 		
 // Paredes
 		const ancho = game.width() - 1
@@ -180,7 +180,7 @@ object nivel2 {
 // Nivel 3
 
 object nivel3 {
-    const nivelActual = 3
+    const property nivelActual = 3
 	method cargar() {
 		
 // Paredes
