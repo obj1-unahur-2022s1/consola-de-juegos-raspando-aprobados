@@ -10,10 +10,10 @@ class Arma {
 	
 	method tePuedePisar(unObjeto) = true
 	
-	method colisionadoPor(objeto){
+	method producirAccion(){
 		game.sound("armaduraequipar.mp3").play()
 		game.removeVisual(self)
-		objeto.estaArmado(true)
+		player.estaArmado(true)
 	}
 }
 

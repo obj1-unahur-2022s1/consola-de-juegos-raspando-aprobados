@@ -9,8 +9,8 @@ class Vida {
 	
 	method tePuedePisar(unObjeto) = true
 	
-	method colisionadoPor(objeto){
-		objeto.agregarVida()
+	method producirAccion(){
+		player.agregarVida()
 		game.removeVisual(self)
 	}
 }
@@ -32,7 +32,7 @@ class BarraVida {
 	 	else {
 	 		return ""
 	 	}
-}
+    }
     
     method tePuedePisar(unObjeto) = false
 }
