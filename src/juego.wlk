@@ -221,6 +221,7 @@ object player {
 
 }
 
+<<<<<<< HEAD
 */
 
 
@@ -251,6 +252,9 @@ object player {
 
 
 
+=======
+//---------------------------------------------------
+>>>>>>> 28b6dbce50b3d520560e37416869c2c2bf422510
 class Juego {
 	var property position = null
 	var property color 
