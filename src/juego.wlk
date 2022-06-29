@@ -80,36 +80,7 @@ object player {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//---------------------------------------------------
 class Juego {
 	var property position = null
 	var property color 

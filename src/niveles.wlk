@@ -11,6 +11,7 @@ import nivel.*
 object nivel1 {
     const property nivelActual = 1
 	var property position
+	method image() = "guerrero.png" /*modificado esto para agregar icono a la consola, cambiar a laberinto */
 	method iniciar() {
 		
 // Paredes
