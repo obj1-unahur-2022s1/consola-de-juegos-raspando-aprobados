@@ -6,6 +6,7 @@ import enemigos.*
 import meta.*
 import paredes.*
 import vidas.*
+import juegoConsola.*
 
 object consola {
 
@@ -15,7 +16,8 @@ object consola {
 		new Juego(color = "Rojo"),
 		new Juego(color = "Azul"),
 		new Juego(color = "Naranja"),
-		new Juego(color = "Violeta")
+		new Juego(color = "Violeta"),
+		juegoLaberinto
 	]
 	
 	var menu
@@ -23,7 +25,7 @@ object consola {
 	method initialize(){
 	    game.height(9)
 	    game.width(9)
-		game.title("Consola de juegos")
+		game.title("Laberinto")
 	}
 	
 	method iniciar(){ 
