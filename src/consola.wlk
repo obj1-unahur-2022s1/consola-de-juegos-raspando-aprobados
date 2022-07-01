@@ -22,8 +22,8 @@ object consola {
 	var menu
 	
 	method initialize(){
-	    game.height(9)
-	    game.width(9)
+	    game.height(13)
+	    game.width(24)
 		game.title("Consola de Juegos")
 	}
 	

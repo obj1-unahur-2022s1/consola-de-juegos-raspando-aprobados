@@ -26,8 +26,8 @@ object juegoLaberinto inherits Juego{
 
 	override method iniciar(){
 		game.title("Laberinto")
-		game.height(9)
-		game.width(9)	
+		game.height(13)
+		game.width(24)	
 		game.cellSize(50)	
 		game.ground("suelo.png")
 		game.addVisualIn(pantallaDeInicio,game.at(0,0))

@@ -12,10 +12,10 @@ import arma.*
 object pantallaDeInicio{
 	var imagen = false
 	method iniciarAnimacion(){
-		game.onTick(900,"Animacion del menu",{self.cambiar()})
+		game.onTick(800,"Pantalla menu",{self.cambiar()})
 	}
 	method terminarAnimacion(){
-		game.removeTickEvent("Animacion del menu")
+		game.removeTickEvent("Pantalla menu")
 	}
 	method cambiar(){
 		if(imagen)
@@ -33,12 +33,26 @@ object pantallaDeInicio{
 
 object pantallaDePerder{
 
-	var imagen = true
+	var imagen = false
 	method iniciarAnimacion(){
-		game.onTick(250,"Animacion del derrota",{self.image()})
+		game.onTick(400,"Pantalla Derrota",{self.cambiar()})
 	}
-
-	method image(){return "gameOver2.jpg"}
+	method terminarAnimacion(){
+		game.removeTickEvent("Pantalla Derrota")
+	}
+	
+	method cambiar(){
+		if(imagen)
+			imagen = false
+		else
+			imagen = true
+	}
+	method image(){
+		if(imagen)
+			return "finalJuego.png"
+		else
+			return "finalJuego2.png"
+	}
 
 }
 
@@ -46,10 +60,10 @@ object pantallaDePerder{
 object pantallaDeVictoria{
 	var imagen = false
 	method iniciarAnimacion(){
-		game.onTick(250,"Animacion del victoria",{self.cambiar()})
+		game.onTick(300, "Pantalla victoria",{self.cambiar()})
 	}
 	method terminarAnimacion(){
-		game.removeTickEvent("Animacion del victoria")
+		game.removeTickEvent("Pantalla victoria")
 	}
 	method cambiar(){
 		if(imagen)
@@ -59,7 +73,7 @@ object pantallaDeVictoria{
 	}
 	method image(){
 		if(imagen)
-			return "victoria.png"
+			return "victoria1.png"
 		else
 			return "victoria2.png"
 	}
@@ -104,7 +118,7 @@ const property sonido1 = game.sound("nivel1.mp3")
 		return dibujo
 		}
 		
-	method individuos(){}
+	   method individuos(){}
 	
 }
 
@@ -169,6 +183,133 @@ object nivel1 inherits Nivel{
 //Enemigos		
 		var enemigos = [new Position(x=4, y=2),new Position(x=2, y=5),new Position(x=3, y=7)]
 			enemigos.map{p => self.crear(new Enemigo(position=p))}
+	}
+
+}
+
+
+object nivel2 inherits Nivel{
+			
+	override method configuracion() {
+			
+		super()
+		
+		var posicionParedes = []
+				
+		posicionParedes.addAll([new Position(x=1,y=2), new Position(x=2,y=2), new Position(x=3,y=2),new Position(x=4,y=2),new Position(x=5,y=2),new Position(x=6,y=2)])
+		posicionParedes.addAll([new Position(x=1,y=4), new Position(x=2,y=4), new Position(x=3,y=4),new Position(x=5,y=4),new Position(x=6,y=4),new Position(x=7,y=4)])
+		posicionParedes.addAll([new Position(x=1,y=6), new Position(x=2,y=6), new Position(x=3,y=6),new Position(x=4,y=6),new Position(x=6,y=6)])
+	    posicionParedes.addAll([new Position(x=1,y=7), new Position(x=6,y=7)])
+		
+	
+		posicionParedes.forEach { p => self.crear(new Pared(position = p)) }
+		
+		
+//Colisiones		
+		game.whenCollideDo(player, { elemento => elemento.producirAccion(player)									 
+	     }) 
+	     
+	}
+		
+	override method individuos(){
+//	player
+
+		game.addVisual(player)
+		game.say(player, player.mensaje())
+
+//	teclado
+
+ 		keyboard.up().onPressDo{ player.irArriba() }
+		keyboard.down().onPressDo{ player.irAbajo() }
+		keyboard.left().onPressDo{ player.irIzquierda() }
+		keyboard.right().onPressDo{ player.irDerecha() }
+
+//	LLEGADAS
+		var metas = [new Position(x=2, y=8)]
+			.map{ p => self.crear(new Meta(position = p)) }		
+	
+//ARMA
+		var armas = [new Position(x=2, y=1)]
+			.map{ p => self.crear(new Arma(position = p)) }	
+		
+//Barra vidas
+
+       	//var barraVidas = [new Position(x=6, y=8)]
+		//	.map{ p => self.crear(new BarraVida(position = p))}
+		game.addVisual(barraVida)
+		
+//Vidas	
+	   	var vida = [new Position(x=4, y=4),new Position(x=1, y=1),new Position(x=7, y=1)]
+			.map{ p => self.crear(new Vida(position = p)) }	
+		
+//Enemigos		
+		var enemigos = [new Position(x=7, y=2),new Position(x=4, y=3),new Position(x=1, y=4),new Position(x=6, y=5),new Position(x=4, y=7),new Position(x=3, y=7)]
+			.map{ p => self.crear(new Enemigo(position = p)) } 	
+	}
+
+}
+
+object nivel3 inherits Nivel{
+			
+	override method configuracion() {
+			
+		super()
+		
+		var posicionParedes = []
+				
+		posicionParedes.addAll([new Position(x=7,y=1)])
+		posicionParedes.addAll([new Position(x=2,y=2), new Position(x=3,y=2), new Position(x=6,y=2),new Position(x=7,y=2)])
+		posicionParedes.addAll([new Position(x=4,y=3),new Position(x=3,y=3)])
+		posicionParedes.addAll([new Position(x=1,y=4), new Position(x=4,y=4),new Position(x=7,y=4)])
+		posicionParedes.addAll([new Position(x=3,y=5),new Position(x=5,y=5)])
+		posicionParedes.addAll([new Position(x=6,y=6)])
+		posicionParedes.addAll([new Position(x=1,y=7), new Position(x=4,y=7)])
+	
+		posicionParedes.forEach { p => self.crear(new Pared(position = p)) }
+		
+		
+//Colisiones		
+		game.whenCollideDo(player, { elemento => elemento.producirAccion(player)									 
+	     }) 
+	     
+	}
+		
+	override method individuos(){
+//	player
+
+		game.addVisual(player)
+		game.say(player, player.mensaje())
+
+//	teclado
+
+ 		keyboard.up().onPressDo{ player.irArriba() }
+		keyboard.down().onPressDo{ player.irAbajo() }
+		keyboard.left().onPressDo{ player.irIzquierda() }
+		keyboard.right().onPressDo{ player.irDerecha() }
+
+//	LLEGADAS
+		var metas = [new Position(x=2, y=8)]
+			.map{ p => self.crear(new Meta(position = p)) }		
+	
+//ARMA
+		var armas = [new Position(x=3, y=1)]
+			.map{ p => self.crear(new Arma(position = p)) }	
+		
+//Barra vidas
+
+       	//var barraVidas = [new Position(x=6, y=8)]
+		//	.map{ p => self.crear(new BarraVida(position = p))}
+		game.addVisual(barraVida)
+		
+//Vidas	
+	   	var vida = [new Position(x=1, y=5)]
+			.map{ p => self.crear(new Vida(position = p)) }	
+		
+//Enemigos		
+
+        var enemigos = [new Position(x=4, y=2),new Position(x=6, y=3),new Position(x=2, y=6),new Position(x=3, y=4),
+        	new Position(x=4, y=5),new Position(x=7, y=7),new Position(x=5, y=2), new Position(x=6, y=7), new Position(x=1, y=6),
+        	new Position(x=2, y=7)].map{ p => self.crear(new Enemigo(position = p)) } 
 	}
 
 }

@@ -10,8 +10,9 @@ class Meta {
 	method image() = "metafinal.png"
 	
 	method producirAccion(unPlayer){
-		unPlayer.pasarDeNivel()
-		
+	  unPlayer.pasarDeNivel()
+	  unPlayer.resetPosition()
 	}
+	
 
 }
