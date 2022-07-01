@@ -1,17 +1,18 @@
-
 import wollok.game.*
 import direcciones.*
 import arma.*
 import vidas.*
+import musica.*
+import niveles.*
 
 object player {
 	
 	var property position = game.at(4, 0)
-	var property direccion = arriba 
+	var property direccion = abajo
 	var property estaArmado = false
-	
-
-	var vidas = 3
+	var property nivel = 1
+	var  property vidas = 3
+	const property esPared = false
 	
 	method image() {
 		if (self.estaArmado())
@@ -27,41 +28,56 @@ object player {
     
     method vidasActuales() = vidas
     
-   
-	
-	method agregarVida(){
-		if(vidas < 3)
-			vidas += 1
-		return vidas
-	}
-	
-	method gameOver(){
-		if(vidas == 0){
-			game.clear()
+   method pierdeVida(){
+   		vidas = vidas - 1
+		game.removeVisual(self)
+		self.resetPosition()
+		if(vidas == 2){
+			barraVida.dosCorazones()
+			
 		}
-		
-	}
-	
-    
-	
+		else if(vidas == 1){
+			barraVida.unCorazon()
+			
+		}
+		else{
+			game.clear()
+			musicaNivel.stop()
+			musicaPerder.play()
+			game.addVisualIn(pantallaDePerder,game.at(0,0))
+			pantallaDePerder.iniciarAnimacion()
+			
+		}
+   }
+   
+
+   method agregarVida(){
+   	if(vidas < 3)
+   		vidas += 1
+   }
+
 	method resetPosition() {
-		
 		position = game.at(4, 0)
+		game.addVisual(self)
 	}
 	
+	method pasarDeNivel(){
+		if(nivel==1){
+			/*nivel=2
+			nivel2.configuracion()}
+		else if(nivel==2){
+			nivel=3
+			nivel3.configuracion()}
+		else if(nivel==3){*/
+			musicaNivel.stop()
+			musicaFinal.play()
+			game.clear()
+			game.addVisualIn(pantallaDeVictoria,game.at(0,0))
+			pantallaDeVictoria.iniciarAnimacion()
+		}
+	}
 	
-	method chocarConObjeto(unObjeto){
-		if(unObjeto.esArma()){
-			self.estaArmado(true)
-		}else if(unObjeto.esEnemigo() and !self.estaArmado()){
-			vidas-=1
-			self.resetPosition()
-			self.gameOver()
-		}else if(unObjeto.esVida())
-			self.agregarVida()
-			}
-	
-//----------------------------------------------------
+
 	method retrocede() {
 		position = direccion.opuesto().siguiente(position)
 	}
@@ -104,168 +120,4 @@ object player {
 	
 	}
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import wollok.game.*
-import direcciones.*
-import arma.*
-import vidas.*
-
-object player {
-	
-	var property position = game.at(4, 0)
-	var property direccion = arriba 
-	var property estaArmado = false
-
-	var vidas = 3
-	
-	method image() {
-		if (self.estaArmado()){
-		  return "guerrero.png"
-		}  else {
-		  return "guerreroSinArma.png"
-	   }
-	}
-	
-	method vidasActuales() = vidas
-	
-	method mensaje() = "Necesito poder defenderme"
-	
-	method agregarVida(){
-		if(vidas < 3)
-			vidas += 1
-		return vidas
-	}
-	
-	method restarVida(){vidas -= 1}
-	
-//----------------------------------------------
-	method resetPosition() {
-		position = game.at(4, 0)
-	}
-
-	method retrocede() {
-		position = direccion.opuesto().siguiente(position)
-	}
-	
-	method irArriba() {
-		direccion = arriba
-		self.validarLugarLibre(direccion)
-		self.avanzar()
-	}
-	
-
-	method irAbajo() {
-		direccion = abajo
-		self.validarLugarLibre(direccion)
-		self.avanzar()
-	}
-
-	method irIzquierda() {
-		direccion = izquierda
-		self.validarLugarLibre(direccion)
-		self.avanzar()
-	}
-
-	method irDerecha() {
-		direccion = derecha
-		self.validarLugarLibre(direccion)
-		self.avanzar()
-	}
-	
-	method avanzar() {
-		position = direccion.siguiente(position)
-	}
-	
-	method validarLugarLibre(unaDireccion) {
-		const posicionAlLado = unaDireccion.siguiente(position) 
-		const lugarLibre = game.getObjectsIn(posicionAlLado).all{ obj => obj.tePuedePisar(self) } 
-																								  
-		if (!lugarLibre) 																		  
-			throw new Exception(message = "NO PUEDES MOVERTE AHI.")
-	
-	}
-
-}
-
-<<<<<<< HEAD
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-//---------------------------------------------------
->>>>>>> 28b6dbce50b3d520560e37416869c2c2bf422510
-class Juego {
-	var property position = null
-	var property color 
-	
-	method iniciar(){
-        game.addVisual(object{method position()= game.center() method text() = "Juego "+color + " - <q> para salir"})		
-	}
-	
-	method terminar(){
-
-	}
-	method image() = "juego" + color + ".png"
-	
 }

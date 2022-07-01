@@ -1,12 +1,13 @@
 import wollok.game.*
 import paredes.*
 import juego.*
-import direcciones.*
+import vidas.*
+import enemigos.*
 import meta.*
 import arma.*
-import enemigos.*
-import vidas.*
-
+import direcciones.*
+import musica.*
+import arma.*
 
 object pantallaDeInicio{
 	var imagen = false
@@ -24,11 +25,12 @@ object pantallaDeInicio{
 	}
 	method image() {
 		if(imagen)
-			return "bombermanInicioEnter.png"
+			return "menu principal1.png"
 		else
-			return "bombermanInicio.png"
+			return "menu principal2.png"
 	}
 }
+
 
 object pantallaDePerder{
 
@@ -37,7 +39,7 @@ object pantallaDePerder{
 		game.onTick(250,"Animacion del derrota",{self.image()})
 	}
 
-	method image(){return "perder.jpg"	}
+	method image(){return "gameOver2.jpg"}
 
 }
 	
@@ -65,32 +67,20 @@ object pantallaDeVictoria{
 	}
 }
 
+
 class Nivel{
 
-	//method keyboard(){
-	//keyboard.space().onPressDo {player.tirarBomba()}
-	//}
+const property sonido1 = game.sound("nivel1.mp3")
+
 	
 	method configuracion() {
+		
+        keyboard.plusKey().onPressDo({sonido1.volume(1)})
+		keyboard.minusKey().onPressDo({sonido1.volume(0.5)})
+		keyboard.p().onPressDo({sonido1.volume(0)})
+	    game.schedule(500, { sonido1.play()} )	
 		game.clear()
-		direcciones.movGuerrero(player)
-		paredesBorde.agregarBloquesDelBorde()
-		barraCorazones.agregarCorazones()
-		vida.agregarCorazon()// HASTA ACA LLEGUE COPIANDO MATIAS!!
-		self.individuos()
-		self.keyboard()
-	}
-	
-	method individuos(){}
-	
-}
-
-
-
-object nivel1 {
-	
-	method cargar() {
-/* 		
+		
 //	PAREDES
 		const ancho = game.width() - 1
 		const largo = game.height() - 1
@@ -105,25 +95,60 @@ object nivel1 {
 		posteParedes.remove(new Position(x=4,y=0))//bordeAbajo - la entrada
 		posteParedes.remove(new Position(x=2,y=largo))//bordeArriba - la salida
 		
-*/		
-		posteParedes.addAll([new Position(x=2,y=2), new Position(x=3,y=2), new Position(x=5,y=2),new Position(x=6,y=2)])
-		posteParedes.addAll([new Position(x=1,y=3),new Position(x=5,y=3)])
-		posteParedes.addAll([new Position(x=1,y=4), new Position(x=3,y=4), new Position(x=5,y=4),new Position(x=6,y=4),new Position(x=7,y=4)])
-		posteParedes.addAll([new Position(x=7,y=5)])
-		posteParedes.addAll([new Position(x=2,y=6), new Position(x=3,y=6),new Position(x=4,y=6),new Position(x=5,y=6)])
-		posteParedes.addAll([new Position(x=7,y=7)])
+		posteParedes.forEach{p=>game.addVisual(new Pared(position=p))}
+		
+
+		
+		self.individuos()
+		}
+		
+		method crear(dibujo) {
+		game.addVisual(dibujo)
+		return dibujo
+		}
+		
+	method individuos(){}
+	
+}
+
+
+
+object nivel1 inherits Nivel{
+	
+
+			
+	override method configuracion() {
+			
+		super()
+		
+		var posicionParedes = []
+				
+		posicionParedes.addAll([new Position(x=2,y=2), new Position(x=3,y=2), new Position(x=5,y=2),new Position(x=6,y=2)])
+		posicionParedes.addAll([new Position(x=1,y=3),new Position(x=5,y=3)])
+		posicionParedes.addAll([new Position(x=1,y=4), new Position(x=3,y=4), new Position(x=5,y=4),new Position(x=6,y=4),new Position(x=7,y=4)])
+		posicionParedes.addAll([new Position(x=7,y=5)])
+		posicionParedes.addAll([new Position(x=2,y=6), new Position(x=3,y=6),new Position(x=4,y=6),new Position(x=5,y=6)])
+		posicionParedes.addAll([new Position(x=7,y=7)])
 		
 	
-		posteParedes.forEach { p => self.crear(new Pared(position = p)) }
+		posicionParedes.forEach { p => self.crear(new Pared(position = p)) }
 		
 		
-	//	player
+//Colisiones		
+		game.whenCollideDo(player, { elemento => elemento.producirAccion(player)									 
+	     }) 
+	     
+	}
+		
+	override method individuos(){
+//	player
 
 		game.addVisual(player)
 		game.say(player, player.mensaje())
 
 //	teclado
-		keyboard.up().onPressDo{ player.irArriba() }
+
+ 		keyboard.up().onPressDo{ player.irArriba() }
 		keyboard.down().onPressDo{ player.irAbajo() }
 		keyboard.left().onPressDo{ player.irIzquierda() }
 		keyboard.right().onPressDo{ player.irDerecha() }
@@ -136,338 +161,19 @@ object nivel1 {
 		var armas = [new Position(x=1, y=2)]
 			.map{ p => self.crear(new Arma(position = p)) }	
 		
-//ENEMIGOS	
-	
-		var enemigos = [new Position(x=4, y=2),new Position(x=2, y=5),new Position(x=3, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p)) }
-
-/*//Vidas	
-	   	var vida = [new Position(x=7, y=3)]
-			.map{ p => self.crear(new Vida(position = p)) }	
-*/		
 //Barra vidas
 
-       	var barraVida = [new Position(x=6, y=8)]
-			.map{ p => self.crear(new BarraVida(position = p)) }
-	
-//Colisiones	
-
-         
-         
-	     game.whenCollideDo(player, { elemento => elemento.producirAccion()
-	     										  player.chocarConObjeto(elemento)
-	     })  
-	     
-}
-	
-	method crear(dibujo) {
-		game.addVisual(dibujo)
-		return dibujo
-	}
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import wollok.game.*
-import paredes.*
-import juego.*
-import direcciones.*
-import meta.*
-import arma.*
-import enemigos.*
-import vidas.*
-import nivel.*
-
-object nivel1 {
-    const property nivelActual = 1
-	var property position
-	method image() = "guerrero.png" /*modificado esto para agregar icono a la consola, cambiar a laberinto */
-	method iniciar() {
+       	//var barraVidas = [new Position(x=6, y=8)]
+		//	.map{ p => self.crear(new BarraVida(position = p))}
+		game.addVisual(barraVida)
 		
-// Paredes
-		const ancho = game.width() - 1
-		const largo = game.height() - 1
-		
-		const posteParedes = []
-		
-		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=0)) } // bordeAbajo
-		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=largo)) } // bordeArriba 
-		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=0, y=n)) } // bordeIzq 
-		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=ancho, y=n)) } // bordeDer
-		
-		posteParedes.remove(new Position(x=4,y=0))//bordeAbajo - la entrada
-		posteParedes.remove(new Position(x=2,y=largo))//bordeArriba - la salida
-		
-		
-		posteParedes.addAll([new Position(x=1,y=1), new Position(x=2,y=1), new Position(x=6,y=1)])
-		posteParedes.addAll([new Position(x=1,y=2), new Position(x=2,y=2), new Position(x=5,y=2),new Position(x=6,y=2)])
-		posteParedes.addAll([new Position(x=3,y=3)])
-		posteParedes.addAll([new Position(x=1,y=4), new Position(x=4,y=4), new Position(x=5,y=4),new Position(x=6,y=4)])
-		posteParedes.addAll([new Position(x=1,y=5), new Position(x=6,y=5)])
-		posteParedes.addAll([new Position(x=3,y=6), new Position(x=5,y=6),new Position(x=6,y=6)])
-		posteParedes.addAll([new Position(x=3,y=7)])
-		
-	
-		posteParedes.forEach { p => self.crear(new Pared(position = p)) }
-		
-		
-//	player
-
-		game.addVisualCharacter(player)
-		game.say(player, player.mensaje())
-//Nivel
-
-      var numeroNivel = [new Position(x=0, y=8)].map{ p => self.crear(new TextoNivel(position = p, image= "nivel1Texto.png")) }	
-      
-// Llegadas
-		var metas = [new Position(x=2, y=8)]
-			.map{ p => self.crear(new Meta(position = p)) }		
-	
-//Arma
-		var armas = [new Position(x=1, y=3)]
-			.map{ p => self.crear(new Arma(position = p)) }	
-			
 //Vidas	
-	   	var vida = [new Position(x=5, y=5)]
-			.map{ p => self.crear(new Vida(position = p)) }	
+	   	var vida = [new Position(x=7, y=3)]
+			.map{ p => self.crear(new Vida(position = p))}	
 		
-//Barra vidas
-
-       	var barraVida = [new Position(x=6, y=8)]
-			.map{ p => self.crear(new BarraVida(position = p)) }	
- 
-//Enemigos	
-	
-		var enemigos = [new Position(x=4, y=2),new Position(x=7, y=2),new Position(x=3, y=5),new Position(x=7, y=7),new Position(x=2, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p, image = "monstruo.png")) } 
-	
-	
-//Colisiones	
-
-	    game.onCollideDo(player, { elemento => elemento.producirAccion()})
-	    game.sound("nivel1.mp3").play()
+//Enemigos		
+		var enemigos = [new Position(x=4, y=2),new Position(x=2, y=5),new Position(x=3, y=7)]
+			enemigos.map{p => self.crear(new Enemigo(position=p))}
 	}
-	
-	method crear(dibujo) {
-		game.addVisual(dibujo)
-		return dibujo
-	}
-	
-	method pasarNivel(nivel){
-		game.clear()
-		nivel.cargar()
-	}
-	
-	method terminar(){
-		game.clear()	
-    }
-	
-	method nivelJuego() = nivelActual
-}
-
-// Nivel 2 
-
-object nivel2 {
-    const property nivelActual = 2
-	method cargar()   {
-		
-// Paredes
-		const ancho = game.width() - 1
-		const largo = game.height() - 1
-			
-		const posteParedes = []
-		
-		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=0)) } // bordeAbajo
-		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=largo)) } // bordeArriba 
-		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=0, y=n)) } // bordeIzq 
-		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=ancho, y=n)) } // bordeDer
-		
-		posteParedes.remove(new Position(x=4,y=0))//bordeAbajo - la entrada
-		posteParedes.remove(new Position(x=2,y=largo))//bordeArriba - la salida
-		
-		posteParedes.addAll([new Position(x=1,y=2), new Position(x=2,y=2), new Position(x=3,y=2),new Position(x=4,y=2),new Position(x=5,y=2),new Position(x=6,y=2)])
-		posteParedes.addAll([new Position(x=1,y=4), new Position(x=2,y=4), new Position(x=3,y=4),new Position(x=5,y=4),new Position(x=6,y=4),new Position(x=7,y=4)])
-		posteParedes.addAll([new Position(x=1,y=6), new Position(x=2,y=6), new Position(x=3,y=6),new Position(x=4,y=6),new Position(x=6,y=6)])
-	    posteParedes.addAll([new Position(x=1,y=7), new Position(x=6,y=7)])
-	    
-		posteParedes.forEach { p => self.crear(new Pared(position = p)) }
-		
-// Player
-
-		game.addVisualCharacter(player)
-        player.estaArmado(false)
-        player.resetPosition()
-		game.say(player, player.mensaje())
-
-//Nivel
-
-       var numeroNivel = [new Position(x=0, y=8)].map{ p => self.crear(new TextoNivel(position = p, image= "nivel2Texto.png")) }	
-
-// LLegadas
-		var metas = [new Position(x=2, y=8)]
-			.map{ p => self.crear(new Meta(position = p)) }		
-	
-// Arma 
-		var armas = [new Position(x=7, y=7)]
-			.map{ p => self.crear(new Arma(position = p)) }	
-			
-// Vidas	
-	   	var vida = [new Position(x=4, y=4),new Position(x=1, y=1),new Position(x=7, y=1)]
-			.map{ p => self.crear(new Vida(position = p)) }	
-		
-// Barra vidas
-
-       	var barraVida = [new Position(x=6, y=8)]
-			.map{ p => self.crear(new BarraVida(position = p)) }	
- 
-// Enemigos
-	
-		var enemigos = [new Position(x=7, y=2),new Position(x=4, y=3),new Position(x=1, y=4),new Position(x=6, y=5),new Position(x=4, y=7),new Position(x=3, y=7)]
-			.map{ p => self.crear(new Enemigo(position = p, image="monstruoNivel2.png")) } 	
-
-	
-// Colisiones	
-
-        game.onCollideDo(player, { elemento => elemento.producirAccion()})
-	}
-	
-	method crear(dibujo) {
-		game.addVisual(dibujo)
-		return dibujo
-	}
-	method pasarNivel(nivel){
-		game.clear()
-		nivel.cargar()
-	}
-	
-	method nivelJuego() = nivelActual
-	
-	method terminar(){
-		game.clear()	
-    }
 
 }
-
-// Nivel 3
-
-object nivel3 {
-    const property nivelActual = 3
-	method cargar() {
-		
-// Paredes
-		const ancho = game.width() - 1
-		const largo = game.height() - 1
-			
-		const posteParedes = []
-		
-		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=0)) } // bordeAbajo
-		(0 .. ancho).forEach{ n => posteParedes.add(new Position(x=n, y=largo)) } // bordeArriba 
-		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=0, y=n)) } // bordeIzq 
-		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=ancho, y=n)) } // bordeDer
-		
-		posteParedes.remove(new Position(x=4,y=0))//bordeAbajo - la entrada
-		posteParedes.remove(new Position(x=2,y=largo))//bordeArriba - la salida
-		
-		posteParedes.addAll([new Position(x=7,y=1)])
-		posteParedes.addAll([new Position(x=2,y=2), new Position(x=3,y=2), new Position(x=6,y=2),new Position(x=7,y=2)])
-		posteParedes.addAll([new Position(x=4,y=3),new Position(x=3,y=3)])
-		posteParedes.addAll([new Position(x=1,y=4), new Position(x=4,y=4),new Position(x=7,y=4)])
-		posteParedes.addAll([new Position(x=3,y=5),new Position(x=5,y=5)])
-		posteParedes.addAll([new Position(x=6,y=6)])
-		posteParedes.addAll([new Position(x=1,y=7), new Position(x=4,y=7)])
-	
-		posteParedes.forEach { p => self.crear(new Pared(position = p)) }
-		
-// Player
-
-		game.addVisualCharacter(player)
-        player.estaArmado(false)
-        player.resetPosition()
-		game.say(player, player.mensaje())
-
-//Nivel
-
-       var numeroNivel = [new Position(x=0, y=8)].map{ p => self.crear(new TextoNivel(position = p, image= "nivel3Texto.png")) }	
-
-// LLegadas
-		var metas = [new Position(x=2, y=8)]
-			.map{ p => self.crear(new Meta(position = p)) }		
-	
-// Arma 
-		var armas = [new Position(x=4, y=6)]
-			.map{ p => self.crear(new Arma(position = p)) }	
-			
-// Vidas	
-	   	var vida = [new Position(x=1, y=5)]
-			.map{ p => self.crear(new Vida(position = p)) }	
-		
-// Barra vidas
-
-       	var barraVida = [new Position(x=6, y=8)]
-			.map{ p => self.crear(new BarraVida(position = p)) }	
- 
-// Enemigos
-	
-		var enemigos = [new Position(x=4, y=2),new Position(x=6, y=3),new Position(x=2, y=6),new Position(x=3, y=4),new Position(x=4, y=5),
-			new Position(x=7, y=7),new Position(x=5, y=2), new Position(x=6, y=7), new Position(x=1, y=6),new Position(x=2, y=7)].map{ p => self.crear(new Enemigo(position = p, image="monstruoNivel2.png")) } 	
-
-	
-// Colisiones	
-
-        game.onCollideDo(player, { elemento => elemento.producirAccion()})
-	     
-	 	game.sound("musicaGame.mp3").play()
-	}
-	
-	method crear(dibujo) {
-		game.addVisual(dibujo)
-		return dibujo
-	}
-	method pasarNivel(nivel){
-		game.clear()
-		nivel.cargar()
-	}
-	
-	method nivelJuego() = nivelActual
-	
-	method terminar(){
-		game.clear()	
-    }
-
-}
-
-
-*/

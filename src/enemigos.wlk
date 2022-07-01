@@ -1,6 +1,6 @@
 import wollok.game.*
 import juego.*
-import vidas.*
+
 
 class Enemigo{	
 	var property position
@@ -13,50 +13,15 @@ class Enemigo{
 	
 	method tePuedePisar(unObjeto) = true
 	
-	method producirAccion(){
-		if (player.estaArmado()){
-			vida -= 1
-			game.removeVisual(self)
+	method producirAccion(unPlayer){
+		if(unPlayer.estaArmado()){
+	    	game.removeVisual(self)
+	    	vida -= 1 
 	    }
+	    else if(!unPlayer.estaArmado()){
+			unPlayer.pierdeVida()
+			//unPlayer.resetPosition()	
+		}
+		
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import wollok.game.*
-import juego.*
-import vidas.*
-
-class Enemigo{	
-	var property position
-	var vida = 1
-	const property image = ["monstruo.png", "monstruoNivel2.png"]	
-	
-	method tePuedePisar(unObjeto) = true
-	
-	method producirAccion(){
-		if (player.estaArmado()){
-			game.sound("matarenemigo.mp3").play()
-			vida -= 1
-			game.removeVisual(self)
-	    } else {
-	    	player.restarVida()
-	    	game.say(player, "¡Auch! No debi hacer eso")
-	    }
-	}
-	
-	
-	
-} 
-*/

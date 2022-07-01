@@ -8,16 +8,16 @@ import enemigos.*
 import vidas.*
 import consola.*
 import niveles.*
-
+import musica.*
 
 
 
 class Juego{
 	var property position = null
-	var property color = "Verde"
+	var property color = "Amarillo"
 
 	method iniciar(){
-		game.addVisual(object{method position()= game.center() method text() = "Juego "+color + " - <q> para salir"})
+		game.addVisual(object{method position()= game.center() method text() = "Juego "+ color + " - <q> para salir"})
 	}
 	
 	method terminar(){}

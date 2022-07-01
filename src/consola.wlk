@@ -6,18 +6,17 @@ import enemigos.*
 import meta.*
 import paredes.*
 import vidas.*
-import juegoConsola.*
+import juegoconsola.*
 
 object consola {
 
 	const juegos = [
-		nivel1,
+		juegoLaberinto,
 		new Juego(color = "Verde"),
 		new Juego(color = "Rojo"),
 		new Juego(color = "Azul"),
 		new Juego(color = "Naranja"),
-		new Juego(color = "Violeta"),
-		juegoLaberinto
+		new Juego(color = "Violeta")
 	]
 	
 	var menu

@@ -1,44 +1,23 @@
-import wollok.game.*
-import paredes.*
-import juego.*
-import meta.*
-import arma.*
-import enemigos.*
-import vidas.*
-
-object direcciones {
-	method movGuerrero(prota) {
-		keyboard.left().onPressDo{ self.move(izquierda, prota);player.direccion(izquierda)}//;player.image("bombermanIzquierda.png")}
-		keyboard.right().onPressDo{ self.move(derecha, prota);player.direccion(derecha)}//;player.image("bombermanDerecha.png")}
-		keyboard.up().onPressDo{ self.move(arriba, prota); player.direccion(arriba)}
-		keyboard.down().onPressDo{ self.move(abajo, prota);player.direccion(abajo)}
-	}
-
-	method move(sentido, individuo) {
-		individuo.position(sentido.direccion(individuo.position()))
-	}
-
-	method chocar(individuo, sentido) {
-		self.move(sentido.alChocar(), individuo)
-	}
+class Direccion {
+	method siguiente(position)
 }
 
-object izquierda {
-	method direccion(position) = position.left(1)
-	method alChocar() = derecha
+object izquierda inherits Direccion { 
+	override method siguiente(position) = position.left(1) 
+	method opuesto() = derecha
 }
 
-object derecha {
-	method direccion(position) = position.right(1)
-	method alChocar() = izquierda
+object derecha inherits Direccion { 
+	override method siguiente(position) = position.right(1) 
+	method opuesto() = izquierda
 }
 
-object abajo {
-	method direccion(position) = position.down(1)
-	method alChocar() = arriba
+object abajo inherits Direccion { 
+	override method siguiente(position) = position.down(1) 
+	method opuesto() = arriba
 }
 
-object arriba {
-	method direccion(position) = position.up(1)
-	method alChocar() = abajo
+object arriba inherits Direccion { 
+	override method siguiente(position) = position.up(1) 
+	method opuesto() = abajo
 }
