@@ -9,7 +9,7 @@ class Enemigo{
 	const property esEnemigo = true
 	const property esVida = false
 	
-	method image()= "monstruo.png"
+	method image() = "monstruoP.png"
 	
 	method tePuedePisar(unObjeto) = true
 	

@@ -22,9 +22,9 @@ object consola {
 	var menu
 	
 	method initialize(){
-	    game.height(9)
-	    game.width(9)
-		game.title("Laberinto")
+	    game.height(13)
+	    game.width(24)
+		game.title("Consola de Juegos")
 	}
 	
 	method iniciar(){ 
@@ -33,6 +33,7 @@ object consola {
 		juegos.forEach{juego=>menu.agregarItem(juego)}
 		menu.dibujar()
 		keyboard.enter().onPressDo{self.hacerIniciar(menu.itemSeleccionado())} 
+        game.ground('suelo.png')
 	}
 	
 	method hacerIniciar(juego){ 

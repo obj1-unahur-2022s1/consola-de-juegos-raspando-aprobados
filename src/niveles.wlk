@@ -12,7 +12,7 @@ import arma.*
 object pantallaDeInicio{
 	var imagen = false
 	method iniciarAnimacion(){
-		game.onTick(250,"Animacion del menu",{self.cambiar()})
+		game.onTick(900,"Animacion del menu",{self.cambiar()})
 	}
 	method terminarAnimacion(){
 		game.removeTickEvent("Animacion del menu")
@@ -25,12 +25,11 @@ object pantallaDeInicio{
 	}
 	method image() {
 		if(imagen)
-			return "menu principal1.png"
-		else
 			return "menu principal2.png"
+		else
+			return "menu principal1.png"
 	}
 }
-
 
 object pantallaDePerder{
 
@@ -42,9 +41,8 @@ object pantallaDePerder{
 	method image(){return "gameOver2.jpg"}
 
 }
+
 	
-
-
 object pantallaDeVictoria{
 	var imagen = false
 	method iniciarAnimacion(){
@@ -78,7 +76,6 @@ const property sonido1 = game.sound("nivel1.mp3")
         keyboard.plusKey().onPressDo({sonido1.volume(1)})
 		keyboard.minusKey().onPressDo({sonido1.volume(0.5)})
 		keyboard.p().onPressDo({sonido1.volume(0)})
-	    game.schedule(500, { sonido1.play()} )	
 		game.clear()
 		
 //	PAREDES
@@ -114,8 +111,6 @@ const property sonido1 = game.sound("nivel1.mp3")
 
 
 object nivel1 inherits Nivel{
-	
-
 			
 	override method configuracion() {
 			

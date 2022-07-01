@@ -8,7 +8,7 @@ import enemigos.*
 import vidas.*
 import consola.*
 import niveles.*
-import musica.*
+
 
 
 
@@ -19,21 +19,21 @@ class Juego{
 	method iniciar(){
 		game.addVisual(object{method position()= game.center() method text() = "Juego "+ color + " - <q> para salir"})
 	}
-	
 	method terminar(){}
-	method image() = "juego" + color + ".png"
+	method image() = "juego" + color + ".png" //Son los dinosaurios
 }
 object juegoLaberinto inherits Juego{
 
 	override method iniciar(){
 		game.title("Laberinto")
-		game.height(9)
-		game.width(9)		
-		game.ground('suelo.png')
+		game.height(13)
+		game.width(24)	
+		game.cellSize(50)	
+		game.ground("suelo.png")
 		game.addVisualIn(pantallaDeInicio,game.at(0,0))
 		pantallaDeInicio.iniciarAnimacion()
 		keyboard.enter().onPressDo({nivel1.configuracion()})  
-		musicaNivel.play()	
+//		musicaNivel.play()	
 
 	}
 

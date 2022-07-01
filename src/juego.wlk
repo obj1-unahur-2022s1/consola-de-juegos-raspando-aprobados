@@ -5,6 +5,7 @@ import vidas.*
 import musica.*
 import niveles.*
 
+
 object player {
 	
 	var property position = game.at(4, 0)
