@@ -14,6 +14,7 @@ class Arma {
 	method tePuedePisar(unObjeto) = true
 	
 	method producirAccion(unPlayer){
+		game.sound("armaduraequipar.mp3").play()
 		game.removeVisual(self)
 		unPlayer.estaArmado(true)
 		

@@ -8,7 +8,7 @@ import enemigos.*
 import vidas.*
 import consola.*
 import niveles.*
-
+import musica.*
 
 
 
@@ -23,7 +23,9 @@ class Juego{
 	method image() = "juego" + color + ".png" //Son los dinosaurios
 }
 object juegoLaberinto inherits Juego{
-
+	
+	override method image() = "guerreroSinArma.png"
+	
 	override method iniciar(){
 		game.title("Laberinto")
 		game.height(13)

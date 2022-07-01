@@ -75,6 +75,7 @@ object player {
 			game.clear()
 			game.addVisualIn(pantallaDeVictoria,game.at(0,0))
 			pantallaDeVictoria.iniciarAnimacion()
+//			game.removeVisual(self)
 		}
 	}
 	

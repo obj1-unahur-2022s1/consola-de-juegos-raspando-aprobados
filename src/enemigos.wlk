@@ -14,6 +14,7 @@ class Enemigo{
 	method tePuedePisar(unObjeto) = true
 	
 	method producirAccion(unPlayer){
+		game.sound("matarenemigo.mp3").play()
 		if(unPlayer.estaArmado()){
 	    	game.removeVisual(self)
 	    	vida -= 1 

@@ -10,8 +10,9 @@ class Meta {
 	method image() = "metafinal.png"
 	
 	method producirAccion(unPlayer){
-	  unPlayer.pasarDeNivel()
-	  unPlayer.resetPosition()
+		game.sound("meta.mp3").play()
+	  	unPlayer.pasarDeNivel()
+	  	unPlayer.resetPosition()
 	}
 	
 
