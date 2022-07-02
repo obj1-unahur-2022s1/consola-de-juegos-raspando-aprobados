@@ -12,5 +12,5 @@ Antes de cruzarse con un enemigo debe buscar su espada para ser un verdadero gue
 ### * Busca las vidas te serviran para pasar de nivel.
 
 ### * Con las flechitas moves al guerrero 
-![MoverAGuerrero](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/MoverAGuerrero.jpeg))
+![MoverAGuerrero](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/MoverAGuerrero.jpeg)
 
