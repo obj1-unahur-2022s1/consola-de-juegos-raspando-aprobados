@@ -2,7 +2,7 @@ import wollok.game.*
 import juego.*
 
 object musicaNivel{
-	var property ost = game.sound("musicaGame.mp3")
+	var property ost = game.sound("nivel1.mp3")
 
 	method play(){
 		ost.shouldLoop(true)
@@ -10,6 +10,9 @@ object musicaNivel{
 	}
 	method stop(){
 		ost.stop()
+	}
+	method pause(){
+		ost.pause()
 	}
 }
 

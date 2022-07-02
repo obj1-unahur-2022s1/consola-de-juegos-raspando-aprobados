@@ -19,7 +19,9 @@ class Juego{
 	method iniciar(){
 		game.addVisual(object{method position()= game.center() method text() = "Juego "+ color + " - <q> para salir"})
 	}
-	method terminar(){}
+	method terminar(){
+		musicaNivel.pause()
+	}
 	method image() = "juego" + color + ".png" //Son los dinosaurios
 }
 object juegoLaberinto inherits Juego{
@@ -35,7 +37,7 @@ object juegoLaberinto inherits Juego{
 		game.addVisualIn(pantallaDeInicio,game.at(0,0))
 		pantallaDeInicio.iniciarAnimacion()
 		keyboard.enter().onPressDo({nivel1.configuracion()})  
-//		musicaNivel.play()	
+		//musicaNivel.play()	
 
 	}
 

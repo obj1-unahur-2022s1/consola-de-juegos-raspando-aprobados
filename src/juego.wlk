@@ -52,8 +52,12 @@ object player {
    
 
    method agregarVida(){
-   	if(vidas < 3)
    		vidas = vidas + 1
+   		if(vidas >= 3){
+   			barraVida.image("barraVidasLlena.png")
+   		}
+   		else if(vidas == 2){barraVida.dosCorazones()}
+   		else{barraVida.unCorazon()}
    }
 
 	method resetPosition() {

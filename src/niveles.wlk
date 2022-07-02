@@ -8,6 +8,8 @@ import arma.*
 import direcciones.*
 import musica.*
 import arma.*
+import consola.*
+import juegoconsola.*
 
 object pantallaDeInicio{
 	var imagen = false
@@ -90,6 +92,7 @@ const property sonido1 = game.sound("nivel1.mp3")
         keyboard.plusKey().onPressDo({sonido1.volume(1)})
 		keyboard.minusKey().onPressDo({sonido1.volume(0.5)})
 		keyboard.p().onPressDo({sonido1.volume(0)})
+		//keyboard.q().onPressDo({juegoLaberinto.terminar()})
 		game.clear()
 		
 //	PAREDES
