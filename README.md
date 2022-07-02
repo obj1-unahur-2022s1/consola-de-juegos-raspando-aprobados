@@ -1,9 +1,16 @@
-# Consola de Juegos
+# Juego Laberinto
 
-## Elección del Juego
+![MenuJuegoLaberinto](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/laberintoGuerrero.jpeg)
 
-El juego que debe programar cada equipo es de libre elección. Puede ser cualquier juego que uds quieran implementar, algo totalmente nuevo o replicar un juego que ya existe, como por ejemplo el Tetrix. Apelamos a su creatividad pero para conseguir algo de inspiración pueden revisar en la página de wollok donde hay varios juegos y ejemplos.
+El juego se trata de un guerrero atrapado en un laberinto, debera sobrevivir,encontrar la meta y salir de allí. Pero... no le será facil!!! El laberinto esta repleto de monstruos, los cuales debera enfrentar para poder avanzar en el camino y llegar a su meta. 
+Antes de cruzarse con un enemigo debe buscar su espada para ser un verdadero guerrero... de lo contrario, perdera una vida.
 
-## Integración
+## Instrucciones / Modo de Juego
 
-Pero no todo es tán fácil. El juego que realicen lo deberán integrar a esta consola de juegos. Van a tener que revisar el código, entender como integrarse y luego programar el juego. :-)
+### * Encuentra la espada para el guerrero 
+### * Enfrenta a tus enemigos 
+### * Busca las vidas te serviran para pasar de nivel.
+
+### * Con las flechitas moves al guerrero 
+![MoverAGuerrero](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/MoverAGuerrero.jpeg))
+
