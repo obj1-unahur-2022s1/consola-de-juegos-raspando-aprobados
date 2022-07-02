@@ -20,7 +20,7 @@ class Vida {
 
 object barraVida {
 	
-	var property position = game.at(6, 8)
+	var property position = game.at(21, 12)
 	var property image = "barraVidasLlena.png"
 	/*method image() { 
 		 if(player.vidasActuales() == 2){

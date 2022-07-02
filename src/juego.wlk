@@ -8,7 +8,7 @@ import niveles.*
 
 object player {
 	
-	var property position = game.at(4, 0)
+	var property position = game.at(0,11)
 	var property direccion = abajo
 	var property estaArmado = false
 	var property nivel = 1
@@ -34,8 +34,7 @@ object player {
 		game.removeVisual(self)
 		self.resetPosition()
 		if(vidas == 2){
-			barraVida.dosCorazones()
-			
+			barraVida.dosCorazones()	
 		}
 		else if(vidas == 1){
 			barraVida.unCorazon()
@@ -54,11 +53,11 @@ object player {
 
    method agregarVida(){
    	if(vidas < 3)
-   		vidas += 1
+   		vidas = vidas + 1
    }
 
 	method resetPosition() {
-		position = game.at(4, 0)
+		position = game.at(0, 11)
 		game.addVisual(self)
 	}
 	
@@ -75,7 +74,7 @@ object player {
 			game.clear()
 			game.addVisualIn(pantallaDeVictoria,game.at(0,0))
 			pantallaDeVictoria.iniciarAnimacion()
-//			game.removeVisual(self)
+			game.removeVisual(self)
 		}
 	}
 	

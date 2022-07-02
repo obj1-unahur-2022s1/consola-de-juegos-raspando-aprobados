@@ -24,7 +24,7 @@ class Juego{
 }
 object juegoLaberinto inherits Juego{
 	
-	override method image() = "guerreroSinArma.png"
+	override method image() = "juegoIcono.png"
 	
 	override method iniciar(){
 		game.title("Laberinto")
