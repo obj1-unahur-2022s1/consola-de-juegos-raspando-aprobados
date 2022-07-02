@@ -12,7 +12,7 @@ class Meta {
 	method producirAccion(unPlayer){
 		game.sound("meta.mp3").play()
 	  	unPlayer.pasarDeNivel()
-	  	unPlayer.resetPosition()
+	  	
 	}
 	
 

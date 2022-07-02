@@ -182,7 +182,7 @@ object nivel1 inherits Nivel{
 		
 	override method individuos(){
 //	player
-
+		player.position(game.at(0,11))
 		game.addVisual(player)
 		game.say(player, player.mensaje())
 
@@ -247,7 +247,7 @@ object nivel2 inherits Nivel{
 		
 	override method individuos(){
 //	player
-
+		player.position(game.at(0,11))
 		game.addVisual(player)
 		player.estaArmado(false)
 		game.say(player, player.mensaje())
@@ -311,7 +311,7 @@ object nivel3 inherits Nivel{
 		
 	override method individuos(){
 //	player
-
+		player.position(game.at(0,11))
 		game.addVisual(player)
 		player.estaArmado(false)
 		game.say(player, player.mensaje())
