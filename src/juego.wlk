@@ -42,8 +42,8 @@ object player {
 		}
 		else{
 			game.clear()
-//			musicaNivel.stop()
-//			musicaPerder.play()
+			musicaNivel.stop()
+			musicaPerder.play()
 			game.addVisualIn(pantallaDePerder,game.at(0,0))
 			pantallaDePerder.iniciarAnimacion()
 			
@@ -73,9 +73,9 @@ object player {
 			nivel=3
 			nivel3.configuracion()}
 		else if(nivel==3){
-//			musicaNivel.stop()
-//			musicaFinal.play()
 			game.clear()
+			musicaNivel.stop()
+			musicaFinal.play()
 			game.addVisualIn(pantallaDeVictoria,game.at(0,0))
 			pantallaDeVictoria.iniciarAnimacion()
 			

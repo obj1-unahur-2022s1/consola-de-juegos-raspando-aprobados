@@ -17,7 +17,7 @@ object musicaNivel{
 }
 
 object musicaFinal{
-	var property ost = game.sound("victheme.mp3")
+	var property ost = game.sound("musicaGanar.mp3")
 
 	method play(){
 		ost.shouldLoop(true)
@@ -26,7 +26,7 @@ object musicaFinal{
 }
 
 object musicaPerder{
-	var property ost = game.sound("loseTheme.mp3")
+	var property ost = game.sound("musicaPerder.mp3")
 
 	method play(){
 		ost.shouldLoop(true)

@@ -14,7 +14,7 @@ import juegoconsola.*
 object pantallaDeInicio{
 	var imagen = false
 	method iniciarAnimacion(){
-		game.onTick(800,"Pantalla menu",{self.cambiar()})
+		game.onTick(500,"Pantalla menu",{self.cambiar()})
 	}
 	method terminarAnimacion(){
 		game.removeTickEvent("Pantalla menu")
@@ -285,6 +285,7 @@ object nivel2 inherits Nivel{
 //	player
 		player.position(game.at(0,11))
 		game.addVisual(player)
+		player.estaArmado(false)
 		game.say(player, player.mensaje())
 
 //	teclado
@@ -385,6 +386,7 @@ object nivel3 inherits Nivel{
 //	player
 		player.position(game.at(0,11))
 		game.addVisual(player)
+		player.estaArmado(false)
 		game.say(player, player.mensaje())
 
 //	teclado
