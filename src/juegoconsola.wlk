@@ -21,12 +21,14 @@ class Juego{
 	}
 	method terminar(){
 		musicaNivel.pause()
+	    game.clear()
+	    consola.iniciar()
 	}
 	method image() = "juego" + color + ".png" //Son los dinosaurios
 }
 object juegoLaberinto inherits Juego{
 	
-	override method image() = "juegoIcono.png"
+	override method image() = "guerreroSinArma.png"
 	
 	override method iniciar(){
 		game.title("Laberinto")
@@ -37,8 +39,7 @@ object juegoLaberinto inherits Juego{
 		game.addVisualIn(pantallaDeInicio,game.at(0,0))
 		pantallaDeInicio.iniciarAnimacion()
 		keyboard.enter().onPressDo({nivel1.configuracion()})  
-		//musicaNivel.play()	
-
+		musicaNivel.play()	
 	}
 
 }

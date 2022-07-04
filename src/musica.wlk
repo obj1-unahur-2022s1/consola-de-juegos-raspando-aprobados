@@ -21,7 +21,7 @@ object musicaFinal{
 
 	method play(){
 		ost.shouldLoop(true)
-		game.schedule(500, { ost.play()} )
+		game.schedule(100, { ost.play()} )
 	}
 }
 
@@ -30,6 +30,10 @@ object musicaPerder{
 
 	method play(){
 		ost.shouldLoop(true)
-		game.schedule(500, { ost.play()} )
+		game.schedule(100, { ost.play()} )
 	}
 }
+
+ //     keyboard.plusKey().onPressDo({sonido1.volume(1)})
+//		keyboard.minusKey().onPressDo({sonido1.volume(0.5)})
+//		keyboard.p().onPressDo({sonido1.volume(0)})
