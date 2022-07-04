@@ -17,6 +17,5 @@ class Arma {
 		game.sound("armaduraequipar.mp3").play()
 		game.removeVisual(self)
 		unPlayer.estaArmado(true)
-		
 	}
 }
