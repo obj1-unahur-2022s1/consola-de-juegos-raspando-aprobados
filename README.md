@@ -8,6 +8,7 @@ Antes de cruzarse con un enemigo debe buscar su espada para ser un verdadero gue
 ## Instrucciones / Modo de Juego
 
 ### * Encuentra la espada para el guerrero.
+![ESPADA](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/ESPADA.png?raw=true)
 
 ### * Enfrenta a tus enemigos 
 ![monstruo](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/monstruo.png?raw=true)
