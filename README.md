@@ -8,8 +8,12 @@ Antes de cruzarse con un enemigo debe buscar su espada para ser un verdadero gue
 ## Instrucciones / Modo de Juego
 
 ### * Encuentra la espada para el guerrero.
+
 ### * Enfrenta a tus enemigos 
+![monstruo](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/monstruo.png?raw=true)
+
 ### * Busca las vidas te serviran para pasar de nivel.
+![vida](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/vida.png?raw=true)
 
 ### * Con las flechitas moves al guerrero por el laberinto.
 ![MoverAGuerrero](https://github.com/obj1-unahur-2022s1/consola-de-juegos-raspando-aprobados/blob/master/MoverAGuerrero.png)
