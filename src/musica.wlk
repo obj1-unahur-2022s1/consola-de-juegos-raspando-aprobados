@@ -23,10 +23,6 @@ object musicaFinal{
 		ost.shouldLoop(true)
 		game.schedule(100, { ost.play()} )
 	}
-	
-	method stop(){
-		ost.stop()
-	}
 
 }
 
@@ -38,9 +34,7 @@ object musicaPerder{
 		game.schedule(100, { ost.play()} )
 	}
 	
-	method stop(){
-		ost.stop()
-	}
+
 
 }
 

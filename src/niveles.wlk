@@ -40,7 +40,7 @@ object pantallaDePerder{
 	var imagen = false
 	method iniciarAnimacion(){
 		game.onTick(300,"Pantalla Derrota",{self.cambiar()})
-	    keyboard.q().onPressDo({juegoLaberinto.terminar()})
+		keyboard.q().onPressDo({juegoLaberinto.terminar()})
 	}
 	
 	method terminarAnimacion(){
@@ -311,7 +311,7 @@ object nivel2 inherits Nivel{
 		game.addVisual(barraVida)
 		
 //Vidas	
-	   	var vida = [new Position(x=1, y=1),new Position(x=19, y=1)]
+	   	var vida = [new Position(x=19, y=1)]
 			.map{ p => self.crear(new Vida(position = p))}	
 		
 //Enemigos		

@@ -20,9 +20,7 @@ class Juego{
 		game.addVisual(object{method position()= game.center() method text() = "Juego "+ color + " - <q> para salir"})
 	}
 	method terminar(){
-		musicaNivel.pause()
-//		musicaPerder.stop()
-//		musicaFinal.stop()
+		musicaNivel.stop()
 	    game.clear()
 	    consola.iniciar()
 	}

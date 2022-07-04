@@ -8,7 +8,7 @@ import niveles.*
 
 object player {
 	
-	var property position = game.at(0,11)
+	var property position = game.at(1,11)
 	var property direccion = abajo
 	var property estaArmado = false
 	var property nivel = 1
@@ -60,7 +60,7 @@ object player {
    }
 
 	method resetPosition() {
-		position = game.at(0, 11)
+		position = game.at(1, 11)
 		game.addVisual(self)
 	}
 	
