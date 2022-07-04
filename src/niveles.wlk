@@ -90,8 +90,7 @@ object pantallaDeVictoria{
 class Nivel{
 
 const property sonido1 = game.sound("nivel1.mp3")
-const property sonido2 = game.sound("musicaPerder.mp3")
-const property sonido3 = game.sound("musicaGanar.mp3")
+
 
 	method configuracion() {
 		
@@ -110,7 +109,7 @@ const property sonido3 = game.sound("musicaGanar.mp3")
 		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=0, y=n)) } // bordeIzq 
 		(0 .. largo).forEach{ n => posteParedes.add(new Position(x=ancho, y=n)) } // bordeDer
 		
-		posteParedes.remove(new Position(x=0,y=11))//bordeAbajo - la entrada
+//		posteParedes.remove(new Position(x=0,y=11))//bordeAbajo - la entrada
 		posteParedes.remove(new Position(x=23,y=2))//bordeArriba - la salida
 		
 		posteParedes.forEach{p=>game.addVisual(new Pared(position=p))}
@@ -189,7 +188,7 @@ object nivel1 inherits Nivel{
 		
 	override method individuos(){
 //	player
-		player.position(game.at(0,11))
+		player.position(game.at(1,11))
 		game.addVisual(player)
 		game.say(player, player.mensaje())
 
@@ -285,7 +284,7 @@ object nivel2 inherits Nivel{
 		
 	override method individuos(){
 //	player
-		player.position(game.at(0,11))
+		player.position(game.at(1,11))
 		game.addVisual(player)
 		player.estaArmado(false)
 		game.say(player, player.mensaje())
@@ -383,7 +382,7 @@ object nivel3 inherits Nivel{
 		
 	override method individuos(){
 //	player
-		player.position(game.at(0,11))
+		player.position(game.at(1,11))
 		game.addVisual(player)
 		player.estaArmado(false)
 		game.say(player, player.mensaje())
