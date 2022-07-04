@@ -23,6 +23,11 @@ object musicaFinal{
 		ost.shouldLoop(true)
 		game.schedule(100, { ost.play()} )
 	}
+	
+	method stop(){
+		ost.stop()
+	}
+
 }
 
 object musicaPerder{
@@ -32,6 +37,11 @@ object musicaPerder{
 		ost.shouldLoop(true)
 		game.schedule(100, { ost.play()} )
 	}
+	
+	method stop(){
+		ost.stop()
+	}
+
 }
 
  //     keyboard.plusKey().onPressDo({sonido1.volume(1)})

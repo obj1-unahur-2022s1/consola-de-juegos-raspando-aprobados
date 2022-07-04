@@ -15,7 +15,9 @@ object pantallaDeInicio{
 	var imagen = false
 	method iniciarAnimacion(){
 		game.onTick(300,"Pantalla menu",{self.cambiar()})
+	    keyboard.q().onPressDo({juegoLaberinto.terminar()})
 	}
+	
 	method terminarAnimacion(){
 		game.removeTickEvent("Pantalla menu")
 	}
@@ -38,7 +40,9 @@ object pantallaDePerder{
 	var imagen = false
 	method iniciarAnimacion(){
 		game.onTick(300,"Pantalla Derrota",{self.cambiar()})
+	    keyboard.q().onPressDo({juegoLaberinto.terminar()})
 	}
+	
 	method terminarAnimacion(){
 		game.removeTickEvent("Pantalla Derrota")
 	}
@@ -63,6 +67,7 @@ object pantallaDeVictoria{
 	var imagen = false
 	method iniciarAnimacion(){
 		game.onTick(300, "Pantalla victoria",{self.cambiar()})
+		keyboard.q().onPressDo({juegoLaberinto.terminar()})
 	}
 	method terminarAnimacion(){
 		game.removeTickEvent("Pantalla victoria")
@@ -85,8 +90,9 @@ object pantallaDeVictoria{
 class Nivel{
 
 const property sonido1 = game.sound("nivel1.mp3")
+const property sonido2 = game.sound("musicaPerder.mp3")
+const property sonido3 = game.sound("musicaGanar.mp3")
 
-	
 	method configuracion() {
 		
 		game.clear()

@@ -21,6 +21,8 @@ class Juego{
 	}
 	method terminar(){
 		musicaNivel.pause()
+//		musicaPerder.stop()
+//		musicaFinal.stop()
 	    game.clear()
 	    consola.iniciar()
 	}

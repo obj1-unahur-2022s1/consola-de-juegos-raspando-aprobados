@@ -46,7 +46,6 @@ object player {
 			musicaPerder.play()
 			game.addVisualIn(pantallaDePerder,game.at(0,0))
 			pantallaDePerder.iniciarAnimacion()
-			
 		}
    }
    
@@ -77,8 +76,7 @@ object player {
 			musicaNivel.stop()
 			musicaFinal.play()
 			game.addVisualIn(pantallaDeVictoria,game.at(0,0))
-			pantallaDeVictoria.iniciarAnimacion()
-			
+			pantallaDeVictoria.iniciarAnimacion()	
 		}
 	}
 	
