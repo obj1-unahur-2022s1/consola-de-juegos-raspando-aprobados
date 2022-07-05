@@ -16,27 +16,8 @@ object musicaNivel{
 	}
 }
 
-object musicaFinal{
-	var property music = game.sound("musicaGanar.mp3")
-
-	method play(){
-		music.shouldLoop(true)
-		game.schedule(100, { music.play()} )
-	}
-
-}
-
-object musicaPerder{
-	var property music = game.sound("musicaPerder.mp3")
-
-	method play(){
-		music.shouldLoop(true)
-		game.schedule(100, { music.play()} )
-	}
-	
 
 
-}
 
  //     keyboard.plusKey().onPressDo({sonido1.volume(1)})
 //		keyboard.minusKey().onPressDo({sonido1.volume(0.5)})
