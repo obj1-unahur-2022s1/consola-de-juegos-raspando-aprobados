@@ -6,10 +6,11 @@ object musicaNivel{
 
 	method play(){
 		music.shouldLoop(true)
-		game.schedule(100, { music.play()} ) // lo baje a 100
+		game.schedule(100, { music.play()} ) 
 	}
 	method stop(){
 		music.stop()
+		
 	}
 	method pause(){
 		music.pause()
@@ -19,6 +20,3 @@ object musicaNivel{
 
 
 
- //     keyboard.plusKey().onPressDo({sonido1.volume(1)})
-//		keyboard.minusKey().onPressDo({sonido1.volume(0.5)})
-//		keyboard.p().onPressDo({sonido1.volume(0)})
