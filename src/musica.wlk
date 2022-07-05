@@ -2,36 +2,36 @@ import wollok.game.*
 import juego.*
 
 object musicaNivel{
-	var property ost = game.sound("nivel1.mp3")
+	var property music = game.sound("nivel1.mp3")
 
 	method play(){
-		ost.shouldLoop(true)
-		game.schedule(100, { ost.play()} ) // lo baje a 100
+		music.shouldLoop(true)
+		game.schedule(100, { music.play()} ) // lo baje a 100
 	}
 	method stop(){
-		ost.stop()
+		music.stop()
 	}
 	method pause(){
-		ost.pause()
+		music.pause()
 	}
 }
 
 object musicaFinal{
-	var property ost = game.sound("musicaGanar.mp3")
+	var property music = game.sound("musicaGanar.mp3")
 
 	method play(){
-		ost.shouldLoop(true)
-		game.schedule(100, { ost.play()} )
+		music.shouldLoop(true)
+		game.schedule(100, { music.play()} )
 	}
 
 }
 
 object musicaPerder{
-	var property ost = game.sound("musicaPerder.mp3")
+	var property music = game.sound("musicaPerder.mp3")
 
 	method play(){
-		ost.shouldLoop(true)
-		game.schedule(100, { ost.play()} )
+		music.shouldLoop(true)
+		game.schedule(100, { music.play()} )
 	}
 	
 
